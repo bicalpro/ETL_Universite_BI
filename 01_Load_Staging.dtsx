@@ -1,0 +1,1724 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/12/2026 8:16:00 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-H10OCSF"
+  DTS:CreatorName="DESKTOP-H10OCSF\AL"
+  DTS:DTSID="{49F15124-90F7-495A-95A5-0364B2521C0D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5228.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="01_Load_Staging"
+  DTS:PackageType="5"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{7DC35BB0-AD74-4A96-8D46-EC173292A492}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CM_CSV_Etudiants]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{0A972392-0273-48CF-B0AE-B0E3A08C5830}"
+      DTS:ObjectName="CM_CSV_Etudiants">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\Teaching\DIT\BI\BI_Labs\01_Datasets\Raw\etudiants.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="matricule"
+              DTS:DTSID="{68337B3F-11B1-4043-94F0-77AED5A4DB00}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nom"
+              DTS:DTSID="{811B43E7-89A8-43C8-8E4A-93852DE49964}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="prenom"
+              DTS:DTSID="{81A5504C-ECBF-417D-A758-B6B070E9463B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sexe"
+              DTS:DTSID="{44F0D48A-8ED9-4946-B016-0D68C376FA8D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date_naissance"
+              DTS:DTSID="{7982AA51-A202-4D58-9049-26EF44F19721}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="region"
+              DTS:DTSID="{88D30154-B3BB-4E37-9783-7678555E4407}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nationalite"
+              DTS:DTSID="{E6204610-1A42-4BA1-8106-CE3914B647B3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="type_bac"
+              DTS:DTSID="{B127F800-8847-467C-B09E-1D6252D2BCA1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="annee_bac"
+              DTS:DTSID="{DA0A4DE4-B1C0-4C60-8637-859FD90FB045}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="email"
+              DTS:DTSID="{428712E5-F141-4B63-B204-5853686D4DE7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="telephone"
+              DTS:DTSID="{061B3B86-5B76-4F19-A7DB-2770F221D5A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="boursier"
+              DTS:DTSID="{90A30FB3-DFFB-4912-9108-43061B8468EA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="type_bourse"
+              DTS:DTSID="{3B802DCB-9871-4F64-9E4C-898DA808214D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CM_SQL_DW_Universite]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{24796B03-25DD-428F-B3BD-9DC400F6DC99}"
+      DTS:ObjectName="CM_SQL_DW_Universite">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-H10OCSF\AL;Initial Catalog=DW_Universite_BI;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{24796B03-25DD-428F-B3BD-9DC400F6DC99}DESKTOP-H10OCSF\AL.DW_Universite_BI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQ_Load_Referentials"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Conteneur de séquences"
+      DTS:DTSID="{A8A48CA4-7B88-421C-A315-2831C5E5B499}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ_Load_Referentials">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Enseignants"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tâche de flux de données"
+          DTS:DTSID="{778CDDB2-57D9-42F7-AD64-F58DF62CF151}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Load_Staging_Enseignants"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tâche de flux de données"
+          DTS:DTSID="{f21a4919-057d-4d92-8375-12047e4bac9b}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Load_Staging_Etudiants"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+                  description="Destination OLE DB"
+                  name="Destination OLE DB"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                      name="OpenRowset">[staging].[Etudiants]</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Commande SQL à exécuter."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie le mode utilisé pour accéder à la base de données."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[CM_SQL_DW_Universite]"
+                      connectionManagerRefId="Package.ConnectionManagers[CM_SQL_DW_Universite]"
+                      description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                      errorOrTruncationOperation="Insérer"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrée de destination OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[matricule]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="matricule"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[matricule]"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[matricule]" />
+                        <inputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[nom]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="nom"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[nom]" />
+                        <inputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[prenom]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="prenom"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[prenom]"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[prenom]" />
+                        <inputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[sexe]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="sexe"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sexe]"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[sexe]" />
+                        <inputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[date_naissance]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="date_naissance"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date_naissance]"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[date_naissance]" />
+                        <inputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[region]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="region"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[region]" />
+                        <inputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[nationalite]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="nationalite"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nationalite]"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[nationalite]" />
+                        <inputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[type_bac]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="type_bac"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bac]"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[type_bac]" />
+                        <inputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[annee_bac]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="annee_bac"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[annee_bac]"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[annee_bac]" />
+                        <inputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[email]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="email"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[email]"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[email]" />
+                        <inputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[telephone]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="telephone"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[telephone]"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[telephone]" />
+                        <inputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[boursier]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="boursier"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[boursier]"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[boursier]" />
+                        <inputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[type_bourse]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="type_bourse"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bourse]"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[type_bourse]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[matricule]"
+                          dataType="wstr"
+                          length="50"
+                          name="matricule" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                          dataType="wstr"
+                          length="150"
+                          name="nom" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[prenom]"
+                          dataType="wstr"
+                          length="150"
+                          name="prenom" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sexe]"
+                          dataType="wstr"
+                          length="20"
+                          name="sexe" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date_naissance]"
+                          dataType="wstr"
+                          length="50"
+                          name="date_naissance" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
+                          dataType="wstr"
+                          length="150"
+                          name="region" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nationalite]"
+                          dataType="wstr"
+                          length="150"
+                          name="nationalite" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bac]"
+                          dataType="wstr"
+                          length="100"
+                          name="type_bac" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[annee_bac]"
+                          dataType="wstr"
+                          length="20"
+                          name="annee_bac" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[email]"
+                          dataType="wstr"
+                          length="250"
+                          name="email" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[telephone]"
+                          dataType="wstr"
+                          length="100"
+                          name="telephone" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[boursier]"
+                          dataType="wstr"
+                          length="20"
+                          name="boursier" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bourse]"
+                          dataType="wstr"
+                          length="100"
+                          name="type_bourse" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de destination OLE DB"
+                      synchronousInputId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Source du fichier plat;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+                  description="Source du fichier plat"
+                  localeId="1036"
+                  name="src_Etudiants"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Spécifie si les colonnes dont la longueur est zéro sont traitées comme des valeurs NULL."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie le nom d'une colonne de sortie contenant le nom du fichier. Si aucun nom n'est spécifié, aucune colonne de sortie contenant le nom du fichier ne sera générée."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[CM_CSV_Etudiants]"
+                      connectionManagerRefId="Package.ConnectionManagers[CM_CSV_Etudiants]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat]"
+                      name="Sortie de source de fichier plat">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[matricule]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[matricule]"
+                          length="50"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[matricule]"
+                          name="matricule"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[nom]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[nom]"
+                          length="50"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[nom]"
+                          name="nom"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[prenom]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[prenom]"
+                          length="50"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[prenom]"
+                          name="prenom"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[sexe]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[sexe]"
+                          length="50"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[sexe]"
+                          name="sexe"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[date_naissance]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[date_naissance]"
+                          length="50"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[date_naissance]"
+                          name="date_naissance"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[region]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[region]"
+                          length="50"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[region]"
+                          name="region"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[nationalite]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[nationalite]"
+                          length="50"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[nationalite]"
+                          name="nationalite"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[type_bac]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[type_bac]"
+                          length="50"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[type_bac]"
+                          name="type_bac"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[annee_bac]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[annee_bac]"
+                          length="50"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[annee_bac]"
+                          name="annee_bac"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[email]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[email]"
+                          length="50"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[email]"
+                          name="email"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[telephone]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[telephone]"
+                          length="50"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[telephone]"
+                          name="telephone"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[boursier]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[boursier]"
+                          length="50"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[boursier]"
+                          name="boursier"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[type_bourse]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[type_bourse]"
+                          length="50"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].Columns[type_bourse]"
+                          name="type_bourse"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[matricule]"
+                          dataType="wstr"
+                          length="50"
+                          name="matricule" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[nom]"
+                          dataType="wstr"
+                          length="50"
+                          name="nom" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[prenom]"
+                          dataType="wstr"
+                          length="50"
+                          name="prenom" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[sexe]"
+                          dataType="wstr"
+                          length="50"
+                          name="sexe" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[date_naissance]"
+                          dataType="wstr"
+                          length="50"
+                          name="date_naissance" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[region]"
+                          dataType="wstr"
+                          length="50"
+                          name="region" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[nationalite]"
+                          dataType="wstr"
+                          length="50"
+                          name="nationalite" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[type_bac]"
+                          dataType="wstr"
+                          length="50"
+                          name="type_bac" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[annee_bac]"
+                          dataType="wstr"
+                          length="50"
+                          name="annee_bac" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[email]"
+                          dataType="wstr"
+                          length="50"
+                          name="email" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[telephone]"
+                          dataType="wstr"
+                          length="50"
+                          name="telephone" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[boursier]"
+                          dataType="wstr"
+                          length="50"
+                          name="boursier" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat].ExternalColumns[type_bourse]"
+                          dataType="wstr"
+                          length="50"
+                          name="type_bourse" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie d'erreur de source de fichier plat]"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de source de fichier plat">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                          codePage="65001"
+                          dataType="text"
+                          description="Colonne de sortie d'erreur de source de fichier plat"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                          name="Colonne de sortie d'erreur de source de fichier plat" />
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants.Paths[Sortie de source de fichier plat]"
+                  endId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  name="Sortie de source de fichier plat"
+                  startId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants.Outputs[Sortie de source de fichier plat]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_Formations"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tâche de flux de données"
+          DTS:DTSID="{924D5172-94A4-42DB-95DF-72045A1E6A0D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Load_Staging_Formations"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Referentials\DFT_Load_Staging_UEs"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tâche de flux de données"
+          DTS:DTSID="{013AE50C-2A89-4D9C-91B7-79CEDBF6EFEA}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Load_Staging_UEs"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Referentials\SQL_Truncate_Staging_Enseignants"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tâche d'exécution de requêtes SQL"
+          DTS:DTSID="{B77FDEF2-1C44-4667-BFCB-84F40E4B60A2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Truncate_Staging_Enseignants"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{24796B03-25DD-428F-B3BD-9DC400F6DC99}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE staging.Enseignants;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Referentials\SQL_Truncate_Staging_Etudiants"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tâche d'exécution de requêtes SQL"
+          DTS:DTSID="{52aae273-871c-4e7d-b7a2-6f9ac66c9a04}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Truncate_Staging_Etudiants"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{24796B03-25DD-428F-B3BD-9DC400F6DC99}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE staging.Etudiants;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Referentials\SQL_Truncate_Staging_Formations"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tâche d'exécution de requêtes SQL"
+          DTS:DTSID="{4D0CE590-F34B-46EB-B77B-DE7F400C7D60}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Truncate_Staging_Formations"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{24796B03-25DD-428F-B3BD-9DC400F6DC99}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE staging.Formations;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Referentials\SQL_Truncate_Staging_UEs"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tâche d'exécution de requêtes SQL"
+          DTS:DTSID="{B5616282-6BDD-4320-85DB-5645951BCC0B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Truncate_Staging_UEs"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{24796B03-25DD-428F-B3BD-9DC400F6DC99}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE Staging.UEs;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ_Load_Referentials.PrecedenceConstraints[Contrainte]"
+          DTS:CreationName=""
+          DTS:DTSID="{16886416-7490-4784-9eee-5b680b4ad4fc}"
+          DTS:From="Package\SEQ_Load_Referentials\SQL_Truncate_Staging_Etudiants"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte"
+          DTS:To="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ_Load_Referentials.PrecedenceConstraints[Contrainte 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{424E10EE-C1F0-499A-A477-42BFEC638BA5}"
+          DTS:From="Package\SEQ_Load_Referentials\SQL_Truncate_Staging_Formations"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 1"
+          DTS:To="Package\SEQ_Load_Referentials\DFT_Load_Staging_Formations" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ_Load_Referentials.PrecedenceConstraints[Contrainte 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{D829071B-236C-404E-885D-B511F0856BCE}"
+          DTS:From="Package\SEQ_Load_Referentials\SQL_Truncate_Staging_UEs"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 2"
+          DTS:To="Package\SEQ_Load_Referentials\DFT_Load_Staging_UEs" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ_Load_Referentials.PrecedenceConstraints[Contrainte 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{E944495F-495E-4181-8A68-7D52F65BFF9A}"
+          DTS:From="Package\SEQ_Load_Referentials\SQL_Truncate_Staging_Enseignants"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 3"
+          DTS:To="Package\SEQ_Load_Referentials\DFT_Load_Staging_Enseignants" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ_Load_Transactions"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Conteneur de séquences"
+      DTS:DTSID="{A5A92EB8-732B-4B57-87E9-AE76D53D8955}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ_Load_Transactions">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Transactions\DFT_Load_Staging_Diplomations"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tâche de flux de données"
+          DTS:DTSID="{D1360948-EA8E-468A-9F6B-5998126D72E1}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Load_Staging_Diplomations"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Transactions\DFT_Load_Staging_Inscriptions"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tâche de flux de données"
+          DTS:DTSID="{A5360144-3964-43E4-BB90-C5C82E207768}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Load_Staging_Inscriptions"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Transactions\DFT_Load_Staging_Notes"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tâche de flux de données"
+          DTS:DTSID="{B2871F3E-F8A2-4CC8-A170-FC669FF5ACF5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Load_Staging_Notes"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Transactions\DFT_Load_Staging_Paiements"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tâche de flux de données"
+          DTS:DTSID="{964E6606-39E5-483D-8BD8-1EA328DBC7A1}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Load_Staging_Paiements"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Transactions\SQL_Truncate_Staging_Diplomations"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tâche d'exécution de requêtes SQL"
+          DTS:DTSID="{638525A7-FEA1-4DC5-9E7B-16C2F6D59F38}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Truncate_Staging_Diplomations"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{24796B03-25DD-428F-B3BD-9DC400F6DC99}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE Staging.Diplomations;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Transactions\SQL_Truncate_Staging_Inscriptions"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tâche d'exécution de requêtes SQL"
+          DTS:DTSID="{2BE5BE49-9307-4BCD-B196-97BD057C8B12}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Truncate_Staging_Inscriptions"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{24796B03-25DD-428F-B3BD-9DC400F6DC99}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE Staging.Inscriptions;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Transactions\SQL_Truncate_Staging_Notes"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tâche d'exécution de requêtes SQL"
+          DTS:DTSID="{69B80FBA-9BD6-4CA7-8801-1FE938D3D938}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Truncate_Staging_Notes"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{24796B03-25DD-428F-B3BD-9DC400F6DC99}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE Staging.Notes;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Load_Transactions\SQL_Truncate_Staging_Paiements"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tâche d'exécution de requêtes SQL"
+          DTS:DTSID="{99D836C4-2478-4120-86C8-9F9ED9FD5DF3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Truncate_Staging_Paiements"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{24796B03-25DD-428F-B3BD-9DC400F6DC99}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE Staging.Paiements;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ_Load_Transactions.PrecedenceConstraints[Contrainte]"
+          DTS:CreationName=""
+          DTS:DTSID="{28F702AB-56CD-4981-93AF-1EDD1581D32E}"
+          DTS:From="Package\SEQ_Load_Transactions\SQL_Truncate_Staging_Inscriptions"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte"
+          DTS:To="Package\SEQ_Load_Transactions\DFT_Load_Staging_Inscriptions" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ_Load_Transactions.PrecedenceConstraints[Contrainte 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{276C8B1A-AA52-4059-9F5D-8DF84ACCCCA5}"
+          DTS:From="Package\SEQ_Load_Transactions\SQL_Truncate_Staging_Notes"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 1"
+          DTS:To="Package\SEQ_Load_Transactions\DFT_Load_Staging_Notes" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ_Load_Transactions.PrecedenceConstraints[Contrainte 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{E677C597-007B-4512-BCCC-1278DD276783}"
+          DTS:From="Package\SEQ_Load_Transactions\SQL_Truncate_Staging_Paiements"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 2"
+          DTS:To="Package\SEQ_Load_Transactions\DFT_Load_Staging_Paiements" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ_Load_Transactions.PrecedenceConstraints[Contrainte 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{4275AA7A-8F44-4250-8BE5-D81C516D39F8}"
+          DTS:From="Package\SEQ_Load_Transactions\SQL_Truncate_Staging_Diplomations"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 3"
+          DTS:To="Package\SEQ_Load_Transactions\DFT_Load_Staging_Diplomations" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Audit_Echec"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{CB0698E2-72BA-4572-AC83-E63D486AA1C9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Audit_Echec"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{24796B03-25DD-428F-B3BD-9DC400F6DC99}"
+          SQLTask:SqlStatementSource="INSERT INTO audit.ETL_Run&#xA;(package_name, date_debut, statut)&#xA;VALUES&#xA;(’01_Load_Staging’, SYSDATETIME(), 'Failed');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Audit_Start"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{6E33699F-BE0D-4E02-8CDB-9DA6100BBAAB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Audit_Start"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{24796B03-25DD-428F-B3BD-9DC400F6DC99}"
+          SQLTask:SqlStatementSource="INSERT INTO audit.ETL_Run&#xA;(package_name, date_debut, statut)&#xA;VALUES&#xA;(’01_Load_Staging’, SYSDATETIME(), ’RUNNING’);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Audit_Success"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{511A78BB-3AC2-46F0-99D9-F5DC7E4ACD2B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Audit_Success"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{24796B03-25DD-428F-B3BD-9DC400F6DC99}"
+          SQLTask:SqlStatementSource="INSERT INTO audit.ETL_Run&#xA;(package_name, date_debut, statut)&#xA;VALUES&#xA;(’01_Load_Staging’, SYSDATETIME(), 'Success');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{AB98C839-45D6-449F-BC92-F854C219D617}"
+      DTS:From="Package\SQL_Audit_Start"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\SEQ_Load_Referentials" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{EC8DD2D0-0599-4CA1-AE64-8B413CB2C5CC}"
+      DTS:From="Package\SEQ_Load_Referentials"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 1"
+      DTS:To="Package\SEQ_Load_Transactions" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{141BE52C-1F66-465F-B097-6F707908685E}"
+      DTS:From="Package\SEQ_Load_Transactions"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 2"
+      DTS:To="Package\SQL_Audit_Success" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{5618CF47-9211-4829-9D7D-EF1845A698C0}"
+      DTS:From="Package\SEQ_Load_Transactions"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 3"
+      DTS:To="Package\SQL_Audit_Echec"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="216.8,42.4"
+          Id="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants"
+          TopLeft="355.500000745058,29.7058822637922" />
+        <EdgeLayout
+          Id="Package\SEQ_Load_Referentials.PrecedenceConstraints[Contrainte]"
+          TopLeft="304.985714422562,51.0882352046334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.514286322496,0"
+              Start="0,0"
+              End="43.014286322496,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="43.014286322496,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="235.2,41.6"
+          Id="Package\SEQ_Load_Referentials\SQL_Truncate_Staging_Etudiants"
+          TopLeft="69.7857144225618,30.4705881454747" />
+        <NodeLayout
+          Size="224.8,41.6"
+          Id="Package\SEQ_Load_Referentials\DFT_Load_Staging_Formations"
+          TopLeft="332.514286514083,104.011764584559" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\SEQ_Load_Referentials\DFT_Load_Staging_UEs"
+          TopLeft="358.942857998913,183.917646859746" />
+        <NodeLayout
+          Size="229.6,41.6"
+          Id="Package\SEQ_Load_Referentials\DFT_Load_Staging_Enseignants"
+          TopLeft="358.228572283107,261.152940909693" />
+        <NodeLayout
+          Size="248,41.6"
+          Id="Package\SEQ_Load_Referentials\SQL_Truncate_Staging_Enseignants"
+          TopLeft="71.2142858541744,266.496289022361" />
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\SEQ_Load_Referentials\SQL_Truncate_Staging_UEs"
+          TopLeft="52.171429505032,189.235293867627" />
+        <NodeLayout
+          Size="244,41.6"
+          Id="Package\SEQ_Load_Referentials\SQL_Truncate_Staging_Formations"
+          TopLeft="54.3142866524506,111.99999981768" />
+        <EdgeLayout
+          Id="Package\SEQ_Load_Referentials.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="298.314286652451,128.805882201119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.1999998616324,0"
+              Start="0,0"
+              End="26.6999998616324,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="26.6999998616324,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ_Load_Referentials.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="261.771429505032,207.376470363687">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97.1714284938815,0"
+              Start="0,0"
+              End="89.6714284938815,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="89.6714284938815,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ_Load_Referentials.PrecedenceConstraints[Contrainte 3]"
+          TopLeft="319.214285854174,284.624614966027">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.014286428933,0"
+              Start="0,0"
+              End="31.514286428933,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="31.514286428933,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.2"
+          IsExpanded="False"
+          PanelSize="642.4,342.4"
+          Size="179.2,43.2"
+          Id="Package\SEQ_Load_Referentials"
+          TopLeft="387.857143682789,118.52941166081" />
+        <NodeLayout
+          Size="227.2,41.6"
+          Id="Package\SEQ_Load_Transactions\DFT_Load_Staging_Inscriptions"
+          TopLeft="373.20000210745,13.9117646985091" />
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\SEQ_Load_Transactions\DFT_Load_Staging_Notes"
+          TopLeft="391.085716402288,74.9411763593193" />
+        <NodeLayout
+          Size="220.8,41.6"
+          Id="Package\SEQ_Load_Transactions\DFT_Load_Staging_Paiements"
+          TopLeft="396.085716412931,149.117646882536" />
+        <NodeLayout
+          Size="233.6,41.6"
+          Id="Package\SEQ_Load_Transactions\DFT_Load_Staging_Diplomations"
+          TopLeft="396.085716412932,219.470587997339" />
+        <NodeLayout
+          Size="245.6,41.6"
+          Id="Package\SEQ_Load_Transactions\SQL_Truncate_Staging_Inscriptions"
+          TopLeft="64.4857149015276,19.4941174399378" />
+        <NodeLayout
+          Size="218.4,41.6"
+          Id="Package\SEQ_Load_Transactions\SQL_Truncate_Staging_Notes"
+          TopLeft="67.3428577647526,82.1999997379148" />
+        <NodeLayout
+          Size="240,41.6"
+          Id="Package\SEQ_Load_Transactions\SQL_Truncate_Staging_Paiements"
+          TopLeft="65.2000006173337,151.788234971036" />
+        <NodeLayout
+          Size="252.8,41.6"
+          Id="Package\SEQ_Load_Transactions\SQL_Truncate_Staging_Diplomations"
+          TopLeft="70.9142863437839,217.552940795743" />
+        <EdgeLayout
+          Id="Package\SEQ_Load_Transactions.PrecedenceConstraints[Contrainte]"
+          TopLeft="310.085714901528,37.5029410692234">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.1142872059225,0"
+              Start="0,0"
+              End="55.6142872059225,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="55.6142872059225,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ_Load_Transactions.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="285.742857764753,99.3705880486171">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105.342858637535,0"
+              Start="0,0"
+              End="97.8428586375351,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="97.8428586375351,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ_Load_Transactions.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="305.200000617334,171.252940926786">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90.8857157955974,0"
+              Start="0,0"
+              End="83.3857157955974,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="83.3857157955974,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ_Load_Transactions.PrecedenceConstraints[Contrainte 3]"
+          TopLeft="323.714286343784,239.311764396541">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.3714300691476,0"
+              Start="0,0"
+              End="64.8714300691476,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="64.8714300691476,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.2"
+          IsExpanded="False"
+          PanelSize="714.4,369.6"
+          Size="231.2,43.2"
+          Id="Package\SEQ_Load_Transactions"
+          TopLeft="366.428572208602,213.705882377742" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\SQL_Audit_Start"
+          TopLeft="385.000000819564,35.9411764390843" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="463.000000819564,77.5411764390844">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.4571428632246,40.9882352217259"
+              Start="0,0"
+              End="14.4571428632246,33.4882352217259">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.494117610863" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.494117610863"
+                    Point2="0,20.494117610863"
+                    Point3="4,20.494117610863" />
+                  <mssgle:LineSegment
+                    End="10.4571428632246,20.494117610863" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.4571428632246,20.494117610863"
+                    Point2="14.4571428632246,20.494117610863"
+                    Point3="14.4571428632246,24.494117610863" />
+                  <mssgle:LineSegment
+                    End="14.4571428632246,33.4882352217259" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="479.742857945695,161.72941166081">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.9764707169316"
+              Start="0,0"
+              End="0,44.4764707169316">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.4764707169316" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\SQL_Audit_Success"
+          TopLeft="257.142857690247,315.823529134933" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="444.828572208602,256.905882377742">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-102.885714518355,58.9176467571915"
+              Start="0,0"
+              End="-102.885714518355,51.4176467571915">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.8100180709475" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.8100180709475"
+                    Point2="0,23.8100180709475"
+                    Point3="-4,23.8100180709475" />
+                  <mssgle:LineSegment
+                    End="-98.8857145183549,23.8100180709475" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-98.8857145183549,23.8100180709475"
+                    Point2="-102.885714518355,23.8100180709475"
+                    Point3="-102.885714518355,27.8100180709475" />
+                  <mssgle:LineSegment
+                    End="-102.885714518355,51.4176467571915" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\SQL_Audit_Echec"
+          TopLeft="570.714286929186,327.294117360173" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 3]"
+          TopLeft="519.228572208602,256.905882377742">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="131.885714720584,70.3882349824308"
+              Start="0,0"
+              End="131.885714720584,62.8882349824308">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.4455547557865" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.4455547557865"
+                    Point2="0,28.4455547557865"
+                    Point3="4,28.4455547557865" />
+                  <mssgle:LineSegment
+                    End="127.885714720584,28.4455547557865" />
+                  <mssgle:CubicBezierSegment
+                    Point1="127.885714720584,28.4455547557865"
+                    Point2="131.885714720584,28.4455547557865"
+                    Point3="131.885714720584,32.4455547557865" />
+                  <mssgle:LineSegment
+                    End="131.885714720584,62.8882349824308" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="52.5598300165422,33.4455547557865,26.7660546875,12.1318359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="141.6,41.6"
+          Id="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\src_Etudiants"
+          TopLeft="296.42857205959,60.4117646529291" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants\Destination OLE DB"
+          TopLeft="283.571429175077,248.52941154686" />
+        <EdgeLayout
+          Id="Package\SEQ_Load_Referentials\DFT_Load_Staging_Etudiants.Paths[Sortie de source de fichier plat]"
+          TopLeft="368.000000617334,102.011764652929">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,146.517646893931"
+              Start="0,0"
+              End="0,139.017646893931">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,139.017646893931" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
