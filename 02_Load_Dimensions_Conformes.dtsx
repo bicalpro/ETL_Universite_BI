@@ -1,0 +1,2871 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/13/2026 9:02:25 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-H10OCSF"
+  DTS:CreatorName="DESKTOP-H10OCSF\AL"
+  DTS:DTSID="{5EC337F4-F912-4A3A-A798-4F11B77A7B16}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5228.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{791F3511-5F0F-44C0-829C-C3ABB9D7B1C5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5173D9B0-448F-4D9C-8464-3D7202A66F9E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsAccepted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{582E1D91-083C-4642-B540-F366188FD2F0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{59D28030-D96F-4B3E-9366-83128556D118}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsRead">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C85C7130-E6DE-41F5-A4EF-8792F7DEB3DF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsRejected">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{46272FED-F0CE-409B-8848-CFB3B5DED13D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Audit_End"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{DA25CAC9-8717-4FA3-A3F8-19072DFAE142}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Audit_End"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Audit_Start"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{BC8E635F-FF29-4025-8BC5-3C5EE952F3FE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Audit_Start"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DIm_Date"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{BE04405E-1184-41A3-BCC1-D60A7E8300B3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIm_Date"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dim_Enseignants"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{37AD352D-2D32-44E3-9AA9-59B3CD101B32}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim_Enseignants"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dim_Etudiants"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{FFE845E8-070E-4357-84EB-01F0551342D9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim_Etudiants"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dim_Etudiants\auditDate"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="auditDate"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Etudiants\auditDate.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Etudiants\auditDate.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Dim_Etudiants\auditDate.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\auditDate.Outputs[Sortie de colonne dérivée].Columns[flux_rejet]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="9"
+                      lineageId="Package\Dim_Etudiants\auditDate.Outputs[Sortie de colonne dérivée].Columns[flux_rejet]"
+                      name="flux_rejet"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">"Etudiants"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Etudiants"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\auditDate.Outputs[Sortie de colonne dérivée].Columns[code_erreur]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="23"
+                      lineageId="Package\Dim_Etudiants\auditDate.Outputs[Sortie de colonne dérivée].Columns[code_erreur]"
+                      name="code_erreur"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">"DATE_NAISSANCE_INVALIDE"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"DATE_NAISSANCE_INVALIDE"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\auditDate.Outputs[Sortie de colonne dérivée].Columns[motif_rejet]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="33"
+                      lineageId="Package\Dim_Etudiants\auditDate.Outputs[Sortie de colonne dérivée].Columns[motif_rejet]"
+                      name="motif_rejet"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">"Date de naissance non convertible"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Date de naissance non convertible"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Etudiants\auditDate.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Dim_Etudiants\auditDate.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\auditDate.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\auditDate.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\auditDate.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\auditDate.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Etudiants\AuditMatricule"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="AuditMatricule"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Etudiants\AuditMatricule.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Dim_Etudiants\AuditMatricule.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie de colonne dérivée].Columns[flux_rejet]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="9"
+                      lineageId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie de colonne dérivée].Columns[flux_rejet]"
+                      name="flux_rejet"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">"Etudiants"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Etudiants"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie de colonne dérivée].Columns[code_erreur]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="18"
+                      lineageId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie de colonne dérivée].Columns[code_erreur]"
+                      name="code_erreur"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">"MATRICULE_INVALIDE"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"MATRICULE_INVALIDE"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie de colonne dérivée].Columns[motif_rejet]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="14"
+                      lineageId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie de colonne dérivée].Columns[motif_rejet]"
+                      name="motif_rejet"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">"Matricule vide"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Matricule vide"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Dim_Etudiants\AuditMatricule.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Etudiants\AuditSexe"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="AuditSexe"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Etudiants\AuditSexe.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Dim_Etudiants\AuditSexe.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie de colonne dérivée].Columns[flux_rejet]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="9"
+                      lineageId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie de colonne dérivée].Columns[flux_rejet]"
+                      name="flux_rejet"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">"Etudiants"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Etudiants"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie de colonne dérivée].Columns[code_erreur]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="13"
+                      lineageId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie de colonne dérivée].Columns[code_erreur]"
+                      name="code_erreur"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">"SEXE_INVALIDE"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"SEXE_INVALIDE"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie de colonne dérivée].Columns[motif_rejet]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="13"
+                      lineageId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie de colonne dérivée].Columns[motif_rejet]"
+                      name="motif_rejet"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">"Sexe invalide"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Sexe invalide"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Dim_Etudiants\AuditSexe.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Etudiants\Cleaning"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Cleaning"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Etudiants\Cleaning.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Cleaning.Inputs[Entrée de colonne dérivée].Columns[matricule]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="matricule"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[matricule]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Cleaning.Inputs[Entrée de colonne dérivée].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="nom"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Cleaning.Inputs[Entrée de colonne dérivée].Columns[prenom]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="prenom"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[prenom]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Cleaning.Inputs[Entrée de colonne dérivée].Columns[sexe]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sexe"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Cleaning.Inputs[Entrée de colonne dérivée].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="region"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[region]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Dim_Etudiants\Cleaning.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[matricule_clean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[matricule_clean]"
+                      name="matricule_clean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[matricule]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(matricule)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[nom_clean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[nom_clean]"
+                      name="nom_clean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[UPPER]([TRIM](#{Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[nom]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(TRIM(nom))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[prenom_clean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[prenom_clean]"
+                      name="prenom_clean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[prenom]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(prenom)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[region_raw]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[region_raw]"
+                      name="region_raw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[region]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(region)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[sexe_raw]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[sexe_raw]"
+                      name="sexe_raw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(sexe)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[sexe_clean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[sexe_clean]"
+                      name="sexe_clean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[ISNULL](#{Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]}) ? "?" : [UPPER]([TRIM](#{Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]})) == "M" || [UPPER]([TRIM](#{Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]})) == "MASCULIN" || [UPPER]([TRIM](#{Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]})) == "HOMME" ? "M" : [UPPER]([TRIM](#{Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]})) == "F" || [UPPER]([TRIM](#{Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]})) == "FEMININ" || [UPPER]([TRIM](#{Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]})) == "FEMME" ? "F" : "?"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sexe) ? "?" : UPPER(TRIM(sexe)) == "M" || UPPER(TRIM(sexe)) == "MASCULIN" || UPPER(TRIM(sexe)) == "HOMME" ? "M" : UPPER(TRIM(sexe)) == "F" || UPPER(TRIM(sexe)) == "FEMININ" || UPPER(TRIM(sexe)) == "FEMME" ? "F" : "?"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Dim_Etudiants\Cleaning.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Etudiants\Convert_Date"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Convert_Date"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Etudiants\Convert_Date.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Convert_Date.Inputs[Entrée de conversion de données].Columns[date_naissance]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="date_naissance"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[date_naissance]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Etudiants\Convert_Date.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\Dim_Etudiants\Convert_Date.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Convert_Date.Outputs[Sortie de conversion de données].Columns[Copy of date_naissance]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Dim_Etudiants\Convert_Date.Outputs[Sortie de conversion de données].Columns[Copy of date_naissance]"
+                      name="Copy of date_naissance"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[date_naissance]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Etudiants\Convert_Date.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\Dim_Etudiants\Convert_Date.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Convert_Date.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\Convert_Date.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Convert_Date.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\Convert_Date.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Etudiants\DST_ADT_rejet"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DST_ADT_rejet"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[audit].[Rejets]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Etudiants\DST_ADT_rejet.Connections[OleDbConnection]"
+                  connectionManagerID="{8F3B7821-4889-4EC0-9716-1027879958C8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_SQL_DW_Universite]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].Columns[code_erreur]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="code_erreur"
+                      externalMetadataColumnId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].ExternalColumns[code_erreur]"
+                      lineageId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie de colonne dérivée].Columns[code_erreur]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].Columns[flux_rejet]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="flux_rejet"
+                      externalMetadataColumnId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].ExternalColumns[flux]"
+                      lineageId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie de colonne dérivée].Columns[flux_rejet]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].Columns[motif_rejet]"
+                      cachedDataType="wstr"
+                      cachedLength="14"
+                      cachedName="motif_rejet"
+                      externalMetadataColumnId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      lineageId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie de colonne dérivée].Columns[motif_rejet]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].ExternalColumns[id_rejet]"
+                      dataType="i8"
+                      name="id_rejet" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].ExternalColumns[run_id]"
+                      dataType="i8"
+                      name="run_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].ExternalColumns[flux]"
+                      dataType="wstr"
+                      length="100"
+                      name="flux" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].ExternalColumns[date_rejet]"
+                      dataType="wstr"
+                      length="19"
+                      name="date_rejet" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].ExternalColumns[cle_source]"
+                      dataType="wstr"
+                      length="150"
+                      name="cle_source" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].ExternalColumns[code_erreur]"
+                      dataType="wstr"
+                      length="100"
+                      name="code_erreur" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      dataType="wstr"
+                      length="500"
+                      name="motif" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].ExternalColumns[donnees_source]"
+                      dataType="nText"
+                      name="donnees_source" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB].ExternalColumns[corrige]"
+                      dataType="bool"
+                      name="corrige" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Etudiants\DST_ADT_rejet.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\DST_ADT_rejet.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\DST_ADT_rejet.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Etudiants\DST_ADT_rejet1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DST_ADT_rejet1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[audit].[Rejets]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Etudiants\DST_ADT_rejet1.Connections[OleDbConnection]"
+                  connectionManagerID="{8F3B7821-4889-4EC0-9716-1027879958C8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_SQL_DW_Universite]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].Columns[code_erreur]"
+                      cachedDataType="wstr"
+                      cachedLength="13"
+                      cachedName="code_erreur"
+                      externalMetadataColumnId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].ExternalColumns[code_erreur]"
+                      lineageId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie de colonne dérivée].Columns[code_erreur]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].Columns[flux_rejet]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="flux_rejet"
+                      externalMetadataColumnId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].ExternalColumns[flux]"
+                      lineageId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie de colonne dérivée].Columns[flux_rejet]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].Columns[motif_rejet]"
+                      cachedDataType="wstr"
+                      cachedLength="13"
+                      cachedName="motif_rejet"
+                      externalMetadataColumnId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      lineageId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie de colonne dérivée].Columns[motif_rejet]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].ExternalColumns[id_rejet]"
+                      dataType="i8"
+                      name="id_rejet" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].ExternalColumns[run_id]"
+                      dataType="i8"
+                      name="run_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].ExternalColumns[flux]"
+                      dataType="wstr"
+                      length="100"
+                      name="flux" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].ExternalColumns[date_rejet]"
+                      dataType="wstr"
+                      length="19"
+                      name="date_rejet" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].ExternalColumns[cle_source]"
+                      dataType="wstr"
+                      length="150"
+                      name="cle_source" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].ExternalColumns[code_erreur]"
+                      dataType="wstr"
+                      length="100"
+                      name="code_erreur" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      dataType="wstr"
+                      length="500"
+                      name="motif" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].ExternalColumns[donnees_source]"
+                      dataType="nText"
+                      name="donnees_source" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB].ExternalColumns[corrige]"
+                      dataType="bool"
+                      name="corrige" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Etudiants\DST_ADT_rejet1.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\DST_ADT_rejet1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\DST_ADT_rejet1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Etudiants\DST_ADT_rejet2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DST_ADT_rejet2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[audit].[Rejets]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Etudiants\DST_ADT_rejet2.Connections[OleDbConnection]"
+                  connectionManagerID="{8F3B7821-4889-4EC0-9716-1027879958C8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_SQL_DW_Universite]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].Columns[code_erreur]"
+                      cachedDataType="wstr"
+                      cachedLength="23"
+                      cachedName="code_erreur"
+                      externalMetadataColumnId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].ExternalColumns[code_erreur]"
+                      lineageId="Package\Dim_Etudiants\auditDate.Outputs[Sortie de colonne dérivée].Columns[code_erreur]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].Columns[flux_rejet]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="flux_rejet"
+                      externalMetadataColumnId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].ExternalColumns[flux]"
+                      lineageId="Package\Dim_Etudiants\auditDate.Outputs[Sortie de colonne dérivée].Columns[flux_rejet]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].Columns[motif_rejet]"
+                      cachedDataType="wstr"
+                      cachedLength="33"
+                      cachedName="motif_rejet"
+                      externalMetadataColumnId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      lineageId="Package\Dim_Etudiants\auditDate.Outputs[Sortie de colonne dérivée].Columns[motif_rejet]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].ExternalColumns[id_rejet]"
+                      dataType="i8"
+                      name="id_rejet" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].ExternalColumns[run_id]"
+                      dataType="i8"
+                      name="run_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].ExternalColumns[flux]"
+                      dataType="wstr"
+                      length="100"
+                      name="flux" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].ExternalColumns[date_rejet]"
+                      dataType="wstr"
+                      length="19"
+                      name="date_rejet" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].ExternalColumns[cle_source]"
+                      dataType="wstr"
+                      length="150"
+                      name="cle_source" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].ExternalColumns[code_erreur]"
+                      dataType="wstr"
+                      length="100"
+                      name="code_erreur" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      dataType="wstr"
+                      length="500"
+                      name="motif" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].ExternalColumns[donnees_source]"
+                      dataType="nText"
+                      name="donnees_source" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB].ExternalColumns[corrige]"
+                      dataType="bool"
+                      name="corrige" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Etudiants\DST_ADT_rejet2.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\DST_ADT_rejet2.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\DST_ADT_rejet2.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\DST_ADT_rejet2.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Etudiants\Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Achemine des lignes de données vers différentes sorties, selon le contexte des données. Utilisez des conditions (expressions SSIS) pour spécifier les lignes qui seront acheminées. Par exemple, séparez les enregistrements qui doivent être nettoyés de ceux qui sont prêts à être chargés ou acheminez uniquement un sous-ensemble d'enregistrements."
+              name="Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim_Etudiants\Split.Inputs[Entrée de fractionnement conditionnel]"
+                  description="Entrée vers la transformation de fractionnement conditionnel"
+                  name="Entrée de fractionnement conditionnel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Split.Inputs[Entrée de fractionnement conditionnel].Columns[sexe_clean]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="sexe_clean"
+                      lineageId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[sexe_clean]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Split.Inputs[Entrée de fractionnement conditionnel].Columns[matricule_clean]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="matricule_clean"
+                      lineageId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[matricule_clean]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Etudiants\Split.Outputs[REJET_SEXE]"
+                  description="Sortie 1 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="REJET_SEXE"
+                  synchronousInputId="Package\Dim_Etudiants\Split.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">#{Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[sexe_clean]} == "?"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">sexe_clean == "?"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Etudiants\Split.Outputs[REJET_MATRICULE]"
+                  description="Sortie 2 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="REJET_MATRICULE"
+                  synchronousInputId="Package\Dim_Etudiants\Split.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">[ISNULL](#{Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[matricule_clean]}) || #{Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée].Columns[matricule_clean]} == ""</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(matricule_clean) || matricule_clean == ""</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Etudiants\Split.Outputs[VALIDE]"
+                  description="Sortie par défaut de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  name="VALIDE"
+                  synchronousInputId="Package\Dim_Etudiants\Split.Inputs[Entrée de fractionnement conditionnel]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Etudiants\Split.Outputs[Sortie d'erreur de fractionnement conditionnel]"
+                  description="Sortie d'erreur de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de fractionnement conditionnel"
+                  synchronousInputId="Package\Dim_Etudiants\Split.Inputs[Entrée de fractionnement conditionnel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Split.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\Split.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Split.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\Split.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Etudiants\SRC_STG_Etudiants"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="SRC_STG_Etudiants"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[staging].[Etudiants]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Connections[OleDbConnection]"
+                  connectionManagerID="{8F3B7821-4889-4EC0-9716-1027879958C8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_SQL_DW_Universite]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[matricule]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[matricule]"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[matricule]"
+                      name="matricule"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      length="150"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      name="nom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[prenom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[prenom]"
+                      length="150"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[prenom]"
+                      name="prenom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[sexe]"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]"
+                      name="sexe"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[date_naissance]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[date_naissance]"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[date_naissance]"
+                      name="date_naissance"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[region]"
+                      length="150"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[nationalite]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[nationalite]"
+                      length="100"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[nationalite]"
+                      name="nationalite"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[type_bac]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[type_bac]"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[type_bac]"
+                      name="type_bac"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[annee_bac]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[annee_bac]"
+                      length="30"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[annee_bac]"
+                      name="annee_bac"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[email]"
+                      length="200"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[telephone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[telephone]"
+                      length="80"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[telephone]"
+                      name="telephone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[boursier]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[boursier]"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[boursier]"
+                      name="boursier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[type_bourse]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[type_bourse]"
+                      length="100"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[type_bourse]"
+                      name="type_bourse"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[matricule]"
+                      dataType="wstr"
+                      length="50"
+                      name="matricule" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="150"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[prenom]"
+                      dataType="wstr"
+                      length="150"
+                      name="prenom" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[sexe]"
+                      dataType="wstr"
+                      length="50"
+                      name="sexe" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[date_naissance]"
+                      dataType="wstr"
+                      length="50"
+                      name="date_naissance" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="150"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[nationalite]"
+                      dataType="wstr"
+                      length="100"
+                      name="nationalite" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[type_bac]"
+                      dataType="wstr"
+                      length="50"
+                      name="type_bac" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[annee_bac]"
+                      dataType="wstr"
+                      length="30"
+                      name="annee_bac" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="200"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[telephone]"
+                      dataType="wstr"
+                      length="80"
+                      name="telephone" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[boursier]"
+                      dataType="wstr"
+                      length="50"
+                      name="boursier" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].ExternalColumns[type_bourse]"
+                      dataType="wstr"
+                      length="100"
+                      name="type_bourse" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[matricule]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[matricule]"
+                      name="matricule" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      name="nom" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[prenom]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[prenom]"
+                      name="prenom" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[sexe]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[sexe]"
+                      name="sexe" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[date_naissance]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[date_naissance]"
+                      name="date_naissance" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[region]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[nationalite]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[nationalite]"
+                      name="nationalite" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[type_bac]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[type_bac]"
+                      name="type_bac" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[annee_bac]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[annee_bac]"
+                      name="annee_bac" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[email]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[telephone]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[telephone]"
+                      name="telephone" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[boursier]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[boursier]"
+                      name="boursier" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[type_bourse]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[type_bourse]"
+                      name="type_bourse" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Etudiants\Staging_Etudiants"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Staging_Etudiants"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dw].[Dim_Etudiant]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Etudiants\Staging_Etudiants.Connections[OleDbConnection]"
+                  connectionManagerID="{8F3B7821-4889-4EC0-9716-1027879958C8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_SQL_DW_Universite]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[matricule]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="matricule"
+                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[matricule]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[matricule]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[prenom]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="prenom"
+                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[prenom]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[prenom]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[sexe]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sexe"
+                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[sexe]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[date_naissance]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="date_naissance"
+                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_naissance]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[date_naissance]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[region]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[nationalite]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="nationalite"
+                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[nationalite]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[nationalite]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[type_bac]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="type_bac"
+                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bac]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[type_bac]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[annee_bac]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="annee_bac"
+                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[annee_bac]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[annee_bac]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[email]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[telephone]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="telephone"
+                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[telephone]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[telephone]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[boursier]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="boursier"
+                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[boursier]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[boursier]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[type_bourse]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="type_bourse"
+                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bourse]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[type_bourse]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[matricule]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="matricule" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[prenom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="prenom" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[sexe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="sexe" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_naissance]"
+                      dataType="wstr"
+                      length="10"
+                      name="date_naissance" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[nationalite]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nationalite" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bac]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="type_bac" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[annee_bac]"
+                      dataType="i2"
+                      name="annee_bac" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="telephone" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[boursier]"
+                      dataType="bool"
+                      name="boursier" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bourse]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="type_bourse" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[etudiant_key]"
+                      dataType="i4"
+                      name="etudiant_key" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_debut_validite]"
+                      dataType="wstr"
+                      length="10"
+                      name="date_debut_validite" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_fin_validite]"
+                      dataType="wstr"
+                      length="10"
+                      name="date_fin_validite" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[est_actuel]"
+                      dataType="bool"
+                      name="est_actuel" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[version_numero]"
+                      dataType="i4"
+                      name="version_numero" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_insert]"
+                      dataType="wstr"
+                      length="27"
+                      name="date_insert" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Etudiants\Staging_Etudiants.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\Staging_Etudiants.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\Staging_Etudiants.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\Staging_Etudiants.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dim_Etudiants.Paths[REJET_MATRICULE]"
+              endId="Package\Dim_Etudiants\AuditMatricule.Inputs[Entrée de colonne dérivée]"
+              name="REJET_MATRICULE"
+              startId="Package\Dim_Etudiants\Split.Outputs[REJET_MATRICULE]" />
+            <path
+              refId="Package\Dim_Etudiants.Paths[REJET_SEXE]"
+              endId="Package\Dim_Etudiants\AuditSexe.Inputs[Entrée de colonne dérivée]"
+              name="REJET_SEXE"
+              startId="Package\Dim_Etudiants\Split.Outputs[REJET_SEXE]" />
+            <path
+              refId="Package\Dim_Etudiants.Paths[Sortie d'erreur de conversion de données]"
+              endId="Package\Dim_Etudiants\auditDate.Inputs[Entrée de colonne dérivée]"
+              name="Sortie d'erreur de conversion de données"
+              startId="Package\Dim_Etudiants\Convert_Date.Outputs[Sortie d'erreur de conversion de données]" />
+            <path
+              refId="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée]"
+              endId="Package\Dim_Etudiants\DST_ADT_rejet1.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Dim_Etudiants\AuditSexe.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée1]"
+              endId="Package\Dim_Etudiants\DST_ADT_rejet.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Dim_Etudiants\AuditMatricule.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée2]"
+              endId="Package\Dim_Etudiants\DST_ADT_rejet2.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Dim_Etudiants\auditDate.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée3]"
+              endId="Package\Dim_Etudiants\Convert_Date.Inputs[Entrée de conversion de données]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Dim_Etudiants\Cleaning.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Dim_Etudiants.Paths[Sortie de conversion de données]"
+              endId="Package\Dim_Etudiants\Split.Inputs[Entrée de fractionnement conditionnel]"
+              name="Sortie de conversion de données"
+              startId="Package\Dim_Etudiants\Convert_Date.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\Dim_Etudiants.Paths[Sortie de source OLE DB]"
+              endId="Package\Dim_Etudiants\Cleaning.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source OLE DB"
+              startId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Dim_Etudiants.Paths[VALIDE]"
+              endId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB]"
+              name="VALIDE"
+              startId="Package\Dim_Etudiants\Split.Outputs[VALIDE]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dim_EUs"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{92B0A963-8B22-46A8-8657-2FA740569912}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim_EUs"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dim_Formations"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{06E339CF-4A19-4A7E-A3F5-38D2683E716F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim_Formations"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Validation"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{073E016A-9C69-421E-8203-6AC14A22EE65}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Validation"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{017BEA81-150C-45CE-ACAD-DCCCB2A510AE}"
+      DTS:From="Package\Audit_Start"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\DIm_Date" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{3AC7B829-8454-4DC4-9E2C-675007A76D9B}"
+      DTS:From="Package\DIm_Date"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 1"
+      DTS:To="Package\Dim_Formations" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{E05E5C79-0E71-4E4F-A39D-3C888EA5C80E}"
+      DTS:From="Package\Dim_Formations"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 2"
+      DTS:To="Package\Dim_Etudiants" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{AA2AC06F-770E-4CB3-968B-E056089BB194}"
+      DTS:From="Package\Dim_Etudiants"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 3"
+      DTS:To="Package\Dim_EUs" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{7A2064EB-E191-4D69-852C-4FB233D5C420}"
+      DTS:From="Package\Dim_EUs"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 4"
+      DTS:To="Package\Dim_Enseignants" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{8F0AAF06-5955-46C7-8A4C-E9BC9CB04CC1}"
+      DTS:From="Package\Dim_Enseignants"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 5"
+      DTS:To="Package\Validation" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{52501BAC-7542-4E8E-B00E-E6B6324E476E}"
+      DTS:From="Package\Validation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 6"
+      DTS:To="Package\Audit_End" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\Dim_Etudiants"
+          TopLeft="281.428572027659,278.352940932483" />
+        <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\Audit_Start"
+          TopLeft="15.7142857477373,64.9999999430249" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\DIm_Date"
+          TopLeft="131.428571708349,136.882352821194" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Dim_Formations"
+          TopLeft="195.71428613091,205.705882172632" />
+        <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Dim_EUs"
+          TopLeft="377.142857945695,353.294117337383" />
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\Validation"
+          TopLeft="545.000001160162,513.882352490739" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Audit_End"
+          TopLeft="630.714287056911,600.294117120878" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="81.3142857477373,106.599999943025">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="113.314285960611,30.2823528781689"
+              Start="0,0"
+              End="113.314285960611,22.7823528781689">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.1411764390844" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.1411764390844"
+                    Point2="0,15.1411764390844"
+                    Point3="4,15.1411764390844" />
+                  <mssgle:LineSegment
+                    End="109.314285960611,15.1411764390844" />
+                  <mssgle:CubicBezierSegment
+                    Point1="109.314285960611,15.1411764390844"
+                    Point2="113.314285960611,15.1411764390844"
+                    Point3="113.314285960611,19.1411764390844" />
+                  <mssgle:LineSegment
+                    End="113.314285960611,22.7823528781689" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="194.628571708349,178.482352821194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78.6857144225615,27.2235293514381"
+              Start="0,0"
+              End="78.6857144225615,19.7235293514381">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.61176467571906" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.61176467571906"
+                    Point2="0,13.6117646757191"
+                    Point3="4,13.6117646757191" />
+                  <mssgle:LineSegment
+                    End="74.6857144225615,13.6117646757191" />
+                  <mssgle:CubicBezierSegment
+                    Point1="74.6857144225615,13.6117646757191"
+                    Point2="78.6857144225615,13.6117646757191"
+                    Point3="78.6857144225615,17.6117646757191" />
+                  <mssgle:LineSegment
+                    End="78.6857144225615,19.7235293514381" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="273.31428613091,247.305882172632">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="81.3142858967486,31.0470587598515"
+              Start="0,0"
+              End="81.3142858967486,23.5470587598515">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5235293799258" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5235293799258"
+                    Point2="0,15.5235293799258"
+                    Point3="4,15.5235293799258" />
+                  <mssgle:LineSegment
+                    End="77.3142858967486,15.5235293799258" />
+                  <mssgle:CubicBezierSegment
+                    Point1="77.3142858967486,15.5235293799258"
+                    Point2="81.3142858967486,15.5235293799258"
+                    Point3="81.3142858967486,19.5235293799258" />
+                  <mssgle:LineSegment
+                    End="81.3142858967486,23.5470587598515" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 3]"
+          TopLeft="354.628572027659,319.952940932483">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.9142859180367,33.3411764048993"
+              Start="0,0"
+              End="82.9142859180367,25.8411764048993">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.6705882024496" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.6705882024496"
+                    Point2="0,16.6705882024496"
+                    Point3="4,16.6705882024496" />
+                  <mssgle:LineSegment
+                    End="78.9142859180367,16.6705882024496" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.9142859180367,16.6705882024496"
+                    Point2="82.9142859180367,16.6705882024496"
+                    Point3="82.9142859180367,20.6705882024496" />
+                  <mssgle:LineSegment
+                    End="82.9142859180367,25.8411764048993" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Dim_Enseignants"
+          TopLeft="422.857143757295,426.705881978917" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 4]"
+          TopLeft="437.542857945695,394.894117337383">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64.9142858115997,31.8117646415341"
+              Start="0,0"
+              End="64.9142858115997,24.3117646415341">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.9058823207671" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.9058823207671"
+                    Point2="0,15.9058823207671"
+                    Point3="4,15.9058823207671" />
+                  <mssgle:LineSegment
+                    End="60.9142858115997,15.9058823207671" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60.9142858115997,15.9058823207671"
+                    Point2="64.9142858115997,15.9058823207671"
+                    Point3="64.9142858115997,19.9058823207671" />
+                  <mssgle:LineSegment
+                    End="64.9142858115997,24.3117646415341" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 5]"
+          TopLeft="502.457143757295,468.305881978917">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="104.942857402867,45.5764705118218"
+              Start="0,0"
+              End="104.942857402867,38.0764705118218">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7882352559109" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7882352559109"
+                    Point2="0,22.7882352559109"
+                    Point3="4,22.7882352559109" />
+                  <mssgle:LineSegment
+                    End="100.942857402867,22.7882352559109" />
+                  <mssgle:CubicBezierSegment
+                    Point1="100.942857402867,22.7882352559109"
+                    Point2="104.942857402867,22.7882352559109"
+                    Point3="104.942857402867,26.7882352559109" />
+                  <mssgle:LineSegment
+                    End="104.942857402867,38.0764705118218" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 6]"
+          TopLeft="607.400001160162,555.482352490739">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86.5142858967488,44.8117646301391"
+              Start="0,0"
+              End="86.5142858967488,37.3117646301391">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.4058823150696" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.4058823150696"
+                    Point2="0,22.4058823150696"
+                    Point3="4,22.4058823150696" />
+                  <mssgle:LineSegment
+                    End="82.5142858967488,22.4058823150696" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.5142858967488,22.4058823150696"
+                    Point2="86.5142858967488,22.4058823150696"
+                    Point3="86.5142858967488,26.4058823150696" />
+                  <mssgle:LineSegment
+                    End="86.5142858967488,37.3117646301391" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Dim_Etudiants">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="124,41.6"
+          Id="Package\Dim_Etudiants\auditDate"
+          TopLeft="829.900010331919,393.874792237313" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Dim_Etudiants\DST_ADT_rejet1"
+          TopLeft="567.957143821156,612.97058888089" />
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\Dim_Etudiants\AuditMatricule"
+          TopLeft="367.757152509386,504.639496479869" />
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\Dim_Etudiants\AuditSexe"
+          TopLeft="582.757152845424,509.026051057802" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Dim_Etudiants\DST_ADT_rejet2"
+          TopLeft="817.042867848826,613.076471144682" />
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\Dim_Etudiants\Convert_Date"
+          TopLeft="571.757152802545,298.219328603595" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Dim_Etudiants\Staging_Etudiants"
+          TopLeft="115.1,608.861342218502" />
+        <NodeLayout
+          Size="98.4,41.6"
+          Id="Package\Dim_Etudiants\Split"
+          TopLeft="389.185723302378,393.370588998346" />
+        <NodeLayout
+          Size="118.4,41.6"
+          Id="Package\Dim_Etudiants\Cleaning"
+          TopLeft="590.209533723247,213.694118588642" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Dim_Etudiants\DST_ADT_rejet"
+          TopLeft="368.471438322507,612.311765263" />
+        <EdgeLayout
+          Id="Package\Dim_Etudiants.Paths[VALIDE]"
+          TopLeft="415.785723302378,434.970588998346">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-219.085723302378,173.890753220156"
+              Start="0,0"
+              End="-219.085723302378,166.390753220156">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.0223487553581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57.0223487553581"
+                    Point2="0,61.0223487553581"
+                    Point3="-4,61.0223487553581" />
+                  <mssgle:LineSegment
+                    End="-215.085723302378,61.0223487553581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-215.085723302378,61.0223487553581"
+                    Point2="-219.085723302378,61.0223487553581"
+                    Point3="-219.085723302378,65.0223487553581" />
+                  <mssgle:LineSegment
+                    End="-219.085723302378,166.390753220156" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-126.933994463689,66.0223487553581,34.782265625,9.2705078125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Etudiants.Paths[Sortie de conversion de données]"
+          TopLeft="620.557152802545,339.819328603595">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-182.171429500167,53.5512603947514"
+              Start="0,0"
+              End="-182.171429500167,46.0512603947514">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.7775125605322" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.7775125605322"
+                    Point2="0,21.7775125605322"
+                    Point3="-4,21.7775125605322" />
+                  <mssgle:LineSegment
+                    End="-178.171429500167,21.7775125605322" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-178.171429500167,21.7775125605322"
+                    Point2="-182.171429500167,21.7775125605322"
+                    Point3="-182.171429500167,25.7775125605322" />
+                  <mssgle:LineSegment
+                    End="-182.171429500167,46.0512603947514" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée]"
+          TopLeft="645.75714833329,550.626051057802">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.344537823088"
+              Start="0,0"
+              End="0,54.844537823088">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.844537823088" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée1]"
+          TopLeft="442.314295415947,546.239496479869">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.0722687831314"
+              Start="0,0"
+              End="0,58.5722687831314">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5722687831314" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée2]"
+          TopLeft="893.671439090372,435.474792237313">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,177.601678907369"
+              Start="0,0"
+              End="0,170.101678907369">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,170.101678907369" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée3]"
+          TopLeft="646.183343262896,255.294118588642">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.9252100149529"
+              Start="0,0"
+              End="0,35.4252100149529">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.4252100149529" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Etudiants.Paths[Sortie d'erreur de conversion de données]"
+          TopLeft="665.357152802545,339.819328603595">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="226.542857529374,54.0554636337185"
+              Start="0,0"
+              End="226.542857529374,46.5554636337185">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.9825552110456" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.9825552110456"
+                    Point2="0,21.9825552110456"
+                    Point3="4,21.9825552110456" />
+                  <mssgle:LineSegment
+                    End="222.542857529374,21.9825552110456" />
+                  <mssgle:CubicBezierSegment
+                    Point1="222.542857529374,21.9825552110456"
+                    Point2="226.542857529374,21.9825552110456"
+                    Point3="226.542857529374,25.9825552110456" />
+                  <mssgle:LineSegment
+                    End="226.542857529374,46.5554636337185" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="21.7631865771871,26.9825552110456,183.016484375,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Etudiants.Paths[REJET_SEXE]"
+          TopLeft="460.985723302378,434.970588998346">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="184.171429543046,74.0554620594557"
+              Start="0,0"
+              End="184.171429543046,66.5554620594557">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.9878006699409" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.9878006699409"
+                    Point2="0,25.9878006699409"
+                    Point3="4,25.9878006699409" />
+                  <mssgle:LineSegment
+                    End="180.171429543046,25.9878006699409" />
+                  <mssgle:CubicBezierSegment
+                    Point1="180.171429543046,25.9878006699409"
+                    Point2="184.171429543046,25.9878006699409"
+                    Point3="184.171429543046,29.9878006699409" />
+                  <mssgle:LineSegment
+                    End="184.171429543046,66.5554620594557" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="63.8677655527729,30.9878006699409,56.4358984375,10.8671875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Etudiants.Paths[REJET_MATRICULE]"
+          TopLeft="439.471437905882,434.970588998346">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.6689074815222"
+              Start="0,0"
+              End="0,62.1689074815222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.1689074815222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-43.24294921875,25.6508599907611,86.4858984375,10.8671875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Dim_Etudiants\SRC_STG_Etudiants"
+          TopLeft="567.846145384587,115.999998271465" />
+        <EdgeLayout
+          Id="Package\Dim_Etudiants.Paths[Sortie de source OLE DB]"
+          TopLeft="651.627839553917,157.599998271465">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.0941203171766"
+              Start="0,0"
+              End="0,48.5941203171766">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5941203171766" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Etudiants\Staging_Etudiants">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Etudiants\SRC_STG_Etudiants">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
