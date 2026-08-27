@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{791F3511-5F0F-44C0-829C-C3ABB9D7B1C5}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{31BE076A-0682-4BBC-A2BF-2E1039711D3D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -787,6 +787,297 @@
                       refId="Package\Dim_Etudiants\Convert_Date.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Dim_Etudiants\Convert_Date.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Etudiants\dim_Etudiants"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="dim_Etudiants"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dw].[Dim_Etudiant]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Etudiants\dim_Etudiants.Connections[OleDbConnection]"
+                  connectionManagerID="{8F3B7821-4889-4EC0-9716-1027879958C8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_SQL_DW_Universite]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].Columns[matricule]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="matricule"
+                      externalMetadataColumnId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[matricule]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[matricule]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].Columns[prenom]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="prenom"
+                      externalMetadataColumnId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[prenom]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[prenom]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].Columns[sexe]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sexe"
+                      externalMetadataColumnId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[sexe]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].Columns[date_naissance]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="date_naissance"
+                      externalMetadataColumnId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_naissance]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[date_naissance]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[region]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].Columns[nationalite]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="nationalite"
+                      externalMetadataColumnId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[nationalite]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[nationalite]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].Columns[type_bac]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="type_bac"
+                      externalMetadataColumnId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bac]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[type_bac]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].Columns[annee_bac]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="annee_bac"
+                      externalMetadataColumnId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[annee_bac]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[annee_bac]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[email]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].Columns[telephone]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="telephone"
+                      externalMetadataColumnId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[telephone]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[telephone]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].Columns[boursier]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="boursier"
+                      externalMetadataColumnId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[boursier]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[boursier]" />
+                    <inputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].Columns[type_bourse]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="type_bourse"
+                      externalMetadataColumnId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bourse]"
+                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[type_bourse]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[matricule]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="matricule" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[prenom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="prenom" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[sexe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="sexe" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_naissance]"
+                      dataType="dbDate"
+                      name="date_naissance" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[nationalite]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nationalite" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bac]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="type_bac" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[annee_bac]"
+                      dataType="i2"
+                      name="annee_bac" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="telephone" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[boursier]"
+                      dataType="bool"
+                      name="boursier" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bourse]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="type_bourse" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[etudiant_key]"
+                      dataType="i4"
+                      name="etudiant_key" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_debut_validite]"
+                      dataType="dbDate"
+                      name="date_debut_validite" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_fin_validite]"
+                      dataType="dbDate"
+                      name="date_fin_validite" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[est_actuel]"
+                      dataType="bool"
+                      name="est_actuel" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[version_numero]"
+                      dataType="i4"
+                      name="version_numero" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_insert]"
+                      dataType="dbTimeStamp2"
+                      name="date_insert"
+                      scale="7" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Etudiants\dim_Etudiants.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\dim_Etudiants.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Etudiants\dim_Etudiants.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Etudiants\dim_Etudiants.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1774,300 +2065,6 @@
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\Dim_Etudiants\Staging_Etudiants"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="Staging_Etudiants"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[dw].[Dim_Etudiant]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Dim_Etudiants\Staging_Etudiants.Connections[OleDbConnection]"
-                  connectionManagerID="{8F3B7821-4889-4EC0-9716-1027879958C8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[CM_SQL_DW_Universite]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[matricule]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="matricule"
-                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[matricule]"
-                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[matricule]" />
-                    <inputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[nom]"
-                      cachedDataType="wstr"
-                      cachedLength="150"
-                      cachedName="nom"
-                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
-                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[nom]" />
-                    <inputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[prenom]"
-                      cachedDataType="wstr"
-                      cachedLength="150"
-                      cachedName="prenom"
-                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[prenom]"
-                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[prenom]" />
-                    <inputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[sexe]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="sexe"
-                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[sexe]"
-                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[sexe]" />
-                    <inputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[date_naissance]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="date_naissance"
-                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_naissance]"
-                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[date_naissance]" />
-                    <inputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[region]"
-                      cachedDataType="wstr"
-                      cachedLength="150"
-                      cachedName="region"
-                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
-                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[region]" />
-                    <inputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[nationalite]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="nationalite"
-                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[nationalite]"
-                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[nationalite]" />
-                    <inputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[type_bac]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="type_bac"
-                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bac]"
-                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[type_bac]" />
-                    <inputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[annee_bac]"
-                      cachedDataType="wstr"
-                      cachedLength="30"
-                      cachedName="annee_bac"
-                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[annee_bac]"
-                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[annee_bac]" />
-                    <inputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[email]"
-                      cachedDataType="wstr"
-                      cachedLength="200"
-                      cachedName="email"
-                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[email]"
-                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[email]" />
-                    <inputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[telephone]"
-                      cachedDataType="wstr"
-                      cachedLength="80"
-                      cachedName="telephone"
-                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[telephone]"
-                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[telephone]" />
-                    <inputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[boursier]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="boursier"
-                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[boursier]"
-                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[boursier]" />
-                    <inputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].Columns[type_bourse]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="type_bourse"
-                      externalMetadataColumnId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bourse]"
-                      lineageId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB].Columns[type_bourse]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[matricule]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="matricule" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
-                      codePage="1252"
-                      dataType="str"
-                      length="150"
-                      name="nom" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[prenom]"
-                      codePage="1252"
-                      dataType="str"
-                      length="150"
-                      name="prenom" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[sexe]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      name="sexe" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_naissance]"
-                      dataType="wstr"
-                      length="10"
-                      name="date_naissance" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="region" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[nationalite]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="nationalite" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bac]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="type_bac" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[annee_bac]"
-                      dataType="i2"
-                      name="annee_bac" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[email]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      name="email" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[telephone]"
-                      codePage="1252"
-                      dataType="str"
-                      length="80"
-                      name="telephone" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[boursier]"
-                      dataType="bool"
-                      name="boursier" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[type_bourse]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="type_bourse" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[etudiant_key]"
-                      dataType="i4"
-                      name="etudiant_key" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_debut_validite]"
-                      dataType="wstr"
-                      length="10"
-                      name="date_debut_validite" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_fin_validite]"
-                      dataType="wstr"
-                      length="10"
-                      name="date_fin_validite" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[est_actuel]"
-                      dataType="bool"
-                      name="est_actuel" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[version_numero]"
-                      dataType="i4"
-                      name="version_numero" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB].ExternalColumns[date_insert]"
-                      dataType="wstr"
-                      length="27"
-                      name="date_insert" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Dim_Etudiants\Staging_Etudiants.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Dim_Etudiants\Staging_Etudiants.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Dim_Etudiants\Staging_Etudiants.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Dim_Etudiants\Staging_Etudiants.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
           </components>
           <paths>
             <path
@@ -2117,7 +2114,7 @@
               startId="Package\Dim_Etudiants\SRC_STG_Etudiants.Outputs[Sortie de source OLE DB]" />
             <path
               refId="Package\Dim_Etudiants.Paths[VALIDE]"
-              endId="Package\Dim_Etudiants\Staging_Etudiants.Inputs[Entrée de destination OLE DB]"
+              endId="Package\Dim_Etudiants\dim_Etudiants.Inputs[Entrée de destination OLE DB]"
               name="VALIDE"
               startId="Package\Dim_Etudiants\Split.Outputs[VALIDE]" />
           </paths>
@@ -2241,9 +2238,9 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="146.4,41.6"
-          Id="Package\Dim_Etudiants"
-          TopLeft="281.428572027659,278.352940932483" />
+          Size="126.4,41.6"
+          Id="Package\Audit_End"
+          TopLeft="630.714287056911,600.294117120878" />
         <NodeLayout
           Size="131.2,41.6"
           Id="Package\Audit_Start"
@@ -2253,21 +2250,25 @@
           Id="Package\DIm_Date"
           TopLeft="131.428571708349,136.882352821194" />
         <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\Dim_Formations"
-          TopLeft="195.71428613091,205.705882172632" />
+          Size="159.2,41.6"
+          Id="Package\Dim_Enseignants"
+          TopLeft="422.857143757295,426.705881978917" />
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\Dim_Etudiants"
+          TopLeft="281.428572027659,278.352940932483" />
         <NodeLayout
           Size="120.8,41.6"
           Id="Package\Dim_EUs"
           TopLeft="377.142857945695,353.294117337383" />
         <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Dim_Formations"
+          TopLeft="195.71428613091,205.705882172632" />
+        <NodeLayout
           Size="124.8,41.6"
           Id="Package\Validation"
           TopLeft="545.000001160162,513.882352490739" />
-        <NodeLayout
-          Size="126.4,41.6"
-          Id="Package\Audit_End"
-          TopLeft="630.714287056911,600.294117120878" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
           TopLeft="81.3142857477373,106.599999943025">
@@ -2404,10 +2405,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Dim_Enseignants"
-          TopLeft="422.857143757295,426.705881978917" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 4]"
           TopLeft="437.542857945695,394.894117337383">
@@ -2519,21 +2516,21 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="124,41.6"
-          Id="Package\Dim_Etudiants\auditDate"
-          TopLeft="829.900010331919,393.874792237313" />
+          Size="124.8,41.6"
+          Id="Package\Dim_Etudiants\AuditSexe"
+          TopLeft="582.757152845424,509.026051057802" />
+        <NodeLayout
+          Size="118.4,41.6"
+          Id="Package\Dim_Etudiants\Cleaning"
+          TopLeft="590.209533723247,213.694118588642" />
         <NodeLayout
           Size="156.8,41.6"
           Id="Package\Dim_Etudiants\DST_ADT_rejet1"
           TopLeft="567.957143821156,612.97058888089" />
         <NodeLayout
-          Size="145.6,41.6"
-          Id="Package\Dim_Etudiants\AuditMatricule"
-          TopLeft="367.757152509386,504.639496479869" />
-        <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\Dim_Etudiants\AuditSexe"
-          TopLeft="582.757152845424,509.026051057802" />
+          Size="172,41.6"
+          Id="Package\Dim_Etudiants\SRC_STG_Etudiants"
+          TopLeft="567.846145384587,115.999998271465" />
         <NodeLayout
           Size="156.8,41.6"
           Id="Package\Dim_Etudiants\DST_ADT_rejet2"
@@ -2543,55 +2540,81 @@
           Id="Package\Dim_Etudiants\Convert_Date"
           TopLeft="571.757152802545,298.219328603595" />
         <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\Dim_Etudiants\Staging_Etudiants"
-          TopLeft="115.1,608.861342218502" />
+          Size="145.6,41.6"
+          Id="Package\Dim_Etudiants\dim_Etudiants"
+          TopLeft="82.9571427887191,491.861342321057" />
         <NodeLayout
           Size="98.4,41.6"
           Id="Package\Dim_Etudiants\Split"
           TopLeft="389.185723302378,393.370588998346" />
         <NodeLayout
-          Size="118.4,41.6"
-          Id="Package\Dim_Etudiants\Cleaning"
-          TopLeft="590.209533723247,213.694118588642" />
+          Size="124,41.6"
+          Id="Package\Dim_Etudiants\auditDate"
+          TopLeft="829.900010331919,393.874792237313" />
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Dim_Etudiants\DST_ADT_rejet"
           TopLeft="368.471438322507,612.311765263" />
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\Dim_Etudiants\AuditMatricule"
+          TopLeft="367.757152509386,504.639496479869" />
         <EdgeLayout
           Id="Package\Dim_Etudiants.Paths[VALIDE]"
           TopLeft="415.785723302378,434.970588998346">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-219.085723302378,173.890753220156"
+              EndConnector="-260.028580513659,56.890753322711"
               Start="0,0"
-              End="-219.085723302378,166.390753220156">
+              End="-260.028580513659,49.390753322711">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.0223487553581" />
+                    End="0,15.9643012979435" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,57.0223487553581"
-                    Point2="0,61.0223487553581"
-                    Point3="-4,61.0223487553581" />
+                    Point1="0,15.9643012979435"
+                    Point2="0,19.9643012979435"
+                    Point3="-4,19.9643012979435" />
                   <mssgle:LineSegment
-                    End="-215.085723302378,61.0223487553581" />
+                    End="-256.028580513659,19.9643012979435" />
                   <mssgle:CubicBezierSegment
-                    Point1="-215.085723302378,61.0223487553581"
-                    Point2="-219.085723302378,61.0223487553581"
-                    Point3="-219.085723302378,65.0223487553581" />
+                    Point1="-256.028580513659,19.9643012979435"
+                    Point2="-260.028580513659,19.9643012979435"
+                    Point3="-260.028580513659,23.9643012979435" />
                   <mssgle:LineSegment
-                    End="-219.085723302378,166.390753220156" />
+                    End="-260.028580513659,49.390753322711" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-126.933994463689,66.0223487553581,34.782265625,9.2705078125"
+              BoundingBox="-147.405423069329,24.9643012979435,34.782265625,9.2705078125"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Etudiants.Paths[Sortie de source OLE DB]"
+          TopLeft="651.627839553917,157.599998271465">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.0941203171766"
+              Start="0,0"
+              End="0,48.5941203171766">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5941203171766" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2629,41 +2652,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée]"
-          TopLeft="645.75714833329,550.626051057802">
+          Id="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée3]"
+          TopLeft="646.183343262896,255.294118588642">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,62.344537823088"
+              EndConnector="0,42.9252100149529"
               Start="0,0"
-              End="0,54.844537823088">
+              End="0,35.4252100149529">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.844537823088" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée1]"
-          TopLeft="442.314295415947,546.239496479869">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,66.0722687831314"
-              Start="0,0"
-              End="0,58.5722687831314">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,58.5722687831314" />
+                    End="0,35.4252100149529" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2695,19 +2696,41 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée3]"
-          TopLeft="646.183343262896,255.294118588642">
+          Id="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée1]"
+          TopLeft="442.314295415947,546.239496479869">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.9252100149529"
+              EndConnector="0,66.0722687831314"
               Start="0,0"
-              End="0,35.4252100149529">
+              End="0,58.5722687831314">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.4252100149529" />
+                    End="0,58.5722687831314" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Etudiants.Paths[Sortie de colonne dérivée]"
+          TopLeft="645.75714833329,550.626051057802">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.344537823088"
+              Start="0,0"
+              End="0,54.844537823088">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.844537823088" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2812,37 +2835,11 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="172,41.6"
-          Id="Package\Dim_Etudiants\SRC_STG_Etudiants"
-          TopLeft="567.846145384587,115.999998271465" />
-        <EdgeLayout
-          Id="Package\Dim_Etudiants.Paths[Sortie de source OLE DB]"
-          TopLeft="651.627839553917,157.599998271465">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,56.0941203171766"
-              Start="0,0"
-              End="0,48.5941203171766">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.5941203171766" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim_Etudiants\Staging_Etudiants">
+    design-time-name="Package\Dim_Etudiants\SRC_STG_Etudiants">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2855,7 +2852,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim_Etudiants\SRC_STG_Etudiants">
+    design-time-name="Package\Dim_Etudiants\dim_Etudiants">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

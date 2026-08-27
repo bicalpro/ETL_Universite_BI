@@ -11,9 +11,2526 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionGUID="{BF09D562-2724-446C-8D3F-7A8122CD988D}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{12781B1E-7A01-4CE9-9F6D-8B8659107847}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{131C14C1-2D2C-49E6-A40C-4321D19647DD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="NbSiurcePaiements">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{FB5F62A0-BDD1-476B-82AC-3B90C656B660}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\CS_Montant"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Achemine des lignes de données vers différentes sorties, selon le contexte des données. Utilisez des conditions (expressions SSIS) pour spécifier les lignes qui seront acheminées. Par exemple, séparez les enregistrements qui doivent être nettoyés de ceux qui sont prêts à être chargés ou acheminez uniquement un sous-ensemble d'enregistrements."
+              name="CS_Montant"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\CS_Montant.Inputs[Entrée de fractionnement conditionnel]"
+                  description="Entrée vers la transformation de fractionnement conditionnel"
+                  name="Entrée de fractionnement conditionnel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\CS_Montant.Inputs[Entrée de fractionnement conditionnel].Columns[statut_transaction]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="statut_transaction"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[statut_transaction]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\CS_Montant.Inputs[Entrée de fractionnement conditionnel].Columns[cv_montant]"
+                      cachedDataType="numeric"
+                      cachedName="cv_montant"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\Tâche de flux de données\CV_Montant.Outputs[Sortie de conversion de données].Columns[cv_montant]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\CS_Montant.Outputs[MONTANT_NEGATIF]"
+                  description="Sortie 1 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="MONTANT_NEGATIF"
+                  synchronousInputId="Package\Tâche de flux de données\CS_Montant.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">#{Package\Tâche de flux de données\CV_Montant.Outputs[Sortie de conversion de données].Columns[cv_montant]} &lt; 0</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">cv_montant &lt; 0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\CS_Montant.Outputs[TRANSACTION_ECHOUEE]"
+                  description="Sortie 2 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="TRANSACTION_ECHOUEE"
+                  synchronousInputId="Package\Tâche de flux de données\CS_Montant.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[statut_transaction]} == "ECHEC"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">statut_transaction == "ECHEC"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\CS_Montant.Outputs[VALIDE]"
+                  description="Sortie par défaut de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  name="VALIDE"
+                  synchronousInputId="Package\Tâche de flux de données\CS_Montant.Inputs[Entrée de fractionnement conditionnel]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\CS_Montant.Outputs[Sortie d'erreur de fractionnement conditionnel]"
+                  description="Sortie d'erreur de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de fractionnement conditionnel"
+                  synchronousInputId="Package\Tâche de flux de données\CS_Montant.Inputs[Entrée de fractionnement conditionnel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CS_Montant.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\CS_Montant.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CS_Montant.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\CS_Montant.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\CS_Qualite_Base"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Achemine des lignes de données vers différentes sorties, selon le contexte des données. Utilisez des conditions (expressions SSIS) pour spécifier les lignes qui seront acheminées. Par exemple, séparez les enregistrements qui doivent être nettoyés de ceux qui sont prêts à être chargés ou acheminez uniquement un sous-ensemble d'enregistrements."
+              name="CS_Qualite_Base"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\CS_Qualite_Base.Inputs[Entrée de fractionnement conditionnel]"
+                  description="Entrée vers la transformation de fractionnement conditionnel"
+                  name="Entrée de fractionnement conditionnel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\CS_Qualite_Base.Inputs[Entrée de fractionnement conditionnel].Columns[paiement_id]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="paiement_id"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[paiement_id]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\CS_Qualite_Base.Inputs[Entrée de fractionnement conditionnel].Columns[id_inscription]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="id_inscription"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[id_inscription]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\CS_Qualite_Base.Outputs[REJET_PAIEMENT_ID]"
+                  description="Sortie 1 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="RedirectRow"
+                  exclusionGroup="1"
+                  name="REJET_PAIEMENT_ID"
+                  synchronousInputId="Package\Tâche de flux de données\CS_Qualite_Base.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="RedirectRow">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">[ISNULL](#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[paiement_id]}) || [TRIM](#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[paiement_id]}) == ""</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(paiement_id) || TRIM(paiement_id) == ""</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\CS_Qualite_Base.Outputs[REJET_INSCRIPTION_ID]"
+                  description="Sortie 2 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="RedirectRow"
+                  exclusionGroup="1"
+                  name="REJET_INSCRIPTION_ID"
+                  synchronousInputId="Package\Tâche de flux de données\CS_Qualite_Base.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="RedirectRow">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">[ISNULL](#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[id_inscription]}) || [TRIM](#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[id_inscription]}) == ""</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(id_inscription) || TRIM(id_inscription) == ""</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\CS_Qualite_Base.Outputs[VALIDE]"
+                  description="Sortie par défaut de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  name="VALIDE"
+                  synchronousInputId="Package\Tâche de flux de données\CS_Qualite_Base.Inputs[Entrée de fractionnement conditionnel]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\CS_Qualite_Base.Outputs[Sortie d'erreur de fractionnement conditionnel]"
+                  description="Sortie d'erreur de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de fractionnement conditionnel"
+                  synchronousInputId="Package\Tâche de flux de données\CS_Qualite_Base.Inputs[Entrée de fractionnement conditionnel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CS_Qualite_Base.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\CS_Qualite_Base.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CS_Qualite_Base.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\CS_Qualite_Base.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\CV_DatePaiement"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="CV_DatePaiement"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\CV_DatePaiement.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\CV_DatePaiement.Inputs[Entrée de conversion de données].Columns[date_paiement]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="date_paiement"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[date_paiement]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\CV_DatePaiement.Inputs[Entrée de conversion de données].Columns[id_inscription_clean]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="id_inscription_clean"
+                      lineageId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[id_inscription_clean]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\CV_DatePaiement.Inputs[Entrée de conversion de données].Columns[paiement_id_clean]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="paiement_id_clean"
+                      lineageId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[paiement_id_clean]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\CV_DatePaiement.Inputs[Entrée de conversion de données].Columns[mode_paiement_clean]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="mode_paiement_clean"
+                      lineageId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[mode_paiement_clean]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\CV_DatePaiement.Inputs[Entrée de conversion de données].Columns[reference_clean]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="reference_clean"
+                      lineageId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[reference_clean]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\Tâche de flux de données\CV_DatePaiement.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_date_paiement]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_date_paiement]"
+                      name="cv_date_paiement"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[date_paiement]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_id_inscription_clean]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_id_inscription_clean]"
+                      name="cv_id_inscription_clean"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[id_inscription_clean]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_paiement_id_clean]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_paiement_id_clean]"
+                      name="cv_paiement_id_clean"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[paiement_id_clean]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_mode_paiement_clean]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_mode_paiement_clean]"
+                      name="cv_mode_paiement_clean"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[mode_paiement_clean]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_reference_clean]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="150"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_reference_clean]"
+                      name="cv_reference_clean"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[reference_clean]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\Tâche de flux de données\CV_DatePaiement.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\CV_Montant"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="CV_Montant"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\CV_Montant.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\CV_Montant.Inputs[Entrée de conversion de données].Columns[montant_ssis]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="montant_ssis"
+                      lineageId="Package\Tâche de flux de données\DC_Preparation_Montant.Outputs[Sortie de colonne dérivée].Columns[montant_ssis]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\CV_Montant.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\Tâche de flux de données\CV_Montant.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CV_Montant.Outputs[Sortie de conversion de données].Columns[cv_montant]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Tâche de flux de données\CV_Montant.Outputs[Sortie de conversion de données].Columns[cv_montant]"
+                      name="cv_montant"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\DC_Preparation_Montant.Outputs[Sortie de colonne dérivée].Columns[montant_ssis]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\CV_Montant.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\Tâche de flux de données\CV_Montant.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CV_Montant.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\CV_Montant.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\CV_Montant.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\CV_Montant.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\DC_Nettoyage"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DC_Nettoyage"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\DC_Nettoyage.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Inputs[Entrée de colonne dérivée].Columns[paiement_id]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="paiement_id"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[paiement_id]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Inputs[Entrée de colonne dérivée].Columns[id_inscription]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="id_inscription"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[id_inscription]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Inputs[Entrée de colonne dérivée].Columns[matricule]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="matricule"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[matricule]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Inputs[Entrée de colonne dérivée].Columns[mode_paiement]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="mode_paiement"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[mode_paiement]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Inputs[Entrée de colonne dérivée].Columns[reference]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="reference"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[reference]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Inputs[Entrée de colonne dérivée].Columns[statut_transaction]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="statut_transaction"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[statut_transaction]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\DC_Nettoyage.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[paiement_id_clean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="RedirectRow"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[paiement_id_clean]"
+                      name="paiement_id_clean"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[paiement_id]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(paiement_id)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[id_inscription_clean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="RedirectRow"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[id_inscription_clean]"
+                      name="id_inscription_clean"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[id_inscription]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(id_inscription)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[matricule_clean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="RedirectRow"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[matricule_clean]"
+                      name="matricule_clean"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[matricule]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(matricule)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[mode_paiement_clean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="RedirectRow"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[mode_paiement_clean]"
+                      name="mode_paiement_clean"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[UPPER]([TRIM](#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[mode_paiement]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(TRIM(mode_paiement))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[reference_clean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="RedirectRow"
+                      length="150"
+                      lineageId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[reference_clean]"
+                      name="reference_clean"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[ISNULL](#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[reference]}) ? "" : [TRIM](#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[reference]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(reference) ? "" : TRIM(reference)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[statut_transaction_clean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="RedirectRow"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée].Columns[statut_transaction_clean]"
+                      name="statut_transaction_clean"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[UPPER]([TRIM](#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[statut_transaction]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(TRIM(statut_transaction))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\DC_Nettoyage.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\DC_Preparation_Montant"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DC_Preparation_Montant"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\DC_Preparation_Montant.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DC_Preparation_Montant.Inputs[Entrée de colonne dérivée].Columns[montant]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="montant"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[montant]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\DC_Preparation_Montant.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\DC_Preparation_Montant.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Preparation_Montant.Outputs[Sortie de colonne dérivée].Columns[montant_ssis]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="RedirectRow"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\DC_Preparation_Montant.Outputs[Sortie de colonne dérivée].Columns[montant_ssis]"
+                      name="montant_ssis"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[ISNULL](#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[montant]}) ? "" : [REPLACE]([TRIM](#{Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[montant]}),".",",")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(montant) ? "" : REPLACE(TRIM(montant),".",",")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\DC_Preparation_Montant.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\DC_Preparation_Montant.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Preparation_Montant.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DC_Preparation_Montant.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Preparation_Montant.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DC_Preparation_Montant.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\DC_Rejet_Montant"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DC_Rejet_Montant"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\DC_Rejet_Montant.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\DC_Rejet_Montant.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\DC_Rejet_Montant.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Rejet_Montant.Outputs[Sortie de colonne dérivée].Columns[code_erreur]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="RedirectRow"
+                      length="21"
+                      lineageId="Package\Tâche de flux de données\DC_Rejet_Montant.Outputs[Sortie de colonne dérivée].Columns[code_erreur]"
+                      name="code_erreur"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">"MONTANT_NON_NUMERIQUE"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"MONTANT_NON_NUMERIQUE"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Rejet_Montant.Outputs[Sortie de colonne dérivée].Columns[motif]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="RedirectRow"
+                      length="49"
+                      lineageId="Package\Tâche de flux de données\DC_Rejet_Montant.Outputs[Sortie de colonne dérivée].Columns[motif]"
+                      name="motif"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">"Le montant ne peut pas être converti en numérique"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Le montant ne peut pas être converti en numérique"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\DC_Rejet_Montant.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\DC_Rejet_Montant.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Rejet_Montant.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DC_Rejet_Montant.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DC_Rejet_Montant.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DC_Rejet_Montant.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Fact_Paiement"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Fact_Paiement"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dw].[Fact_Paiement]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Fact_Paiement.Connections[OleDbConnection]"
+                  connectionManagerID="{8F3B7821-4889-4EC0-9716-1027879958C8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_SQL_DW_Universite]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].Columns[etudiant_key]"
+                      cachedDataType="i4"
+                      cachedName="etudiant_key"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[etudiant_key]"
+                      lineageId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie de recherche avec correspondance].Columns[etudiant_key]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].Columns[formation_key]"
+                      cachedDataType="i4"
+                      cachedName="formation_key"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[formation_key]"
+                      lineageId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie de recherche avec correspondance].Columns[formation_key]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].Columns[date_paiement_key]"
+                      cachedDataType="i4"
+                      cachedName="date_paiement_key"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[date_paiement_key]"
+                      lineageId="Package\Tâche de flux de données\LK_Date.Outputs[Sortie de recherche avec correspondance].Columns[date_paiement_key]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].Columns[cv_montant]"
+                      cachedDataType="numeric"
+                      cachedName="cv_montant"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[montant]"
+                      lineageId="Package\Tâche de flux de données\CV_Montant.Outputs[Sortie de conversion de données].Columns[cv_montant]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].Columns[cv_mode_paiement_clean]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cv_mode_paiement_clean"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[mode_paiement]"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_mode_paiement_clean]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].Columns[cv_reference_clean]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="cv_reference_clean"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[reference_transaction]"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_reference_clean]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].Columns[cv_paiement_id_clean]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="cv_paiement_id_clean"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[paiement_id]"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_paiement_id_clean]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].Columns[cv_id_inscription_clean]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="cv_id_inscription_clean"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[id_inscription]"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_id_inscription_clean]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[paiement_fact_key]"
+                      dataType="i8"
+                      name="paiement_fact_key" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[paiement_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="paiement_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[id_inscription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="id_inscription" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[etudiant_key]"
+                      dataType="i4"
+                      name="etudiant_key" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[formation_key]"
+                      dataType="i4"
+                      name="formation_key" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[date_paiement_key]"
+                      dataType="i4"
+                      name="date_paiement_key" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[montant]"
+                      dataType="numeric"
+                      name="montant"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[mode_paiement]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="mode_paiement" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB].ExternalColumns[reference_transaction]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="reference_transaction" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Fact_Paiement.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Fact_Paiement.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Fact_Paiement.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Fact_Paiement.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="LK_AntiDoublon_Paiement"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dw].[Fact_Paiement]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[Fact_Paiement]) [refTable]
+where [refTable].[paiement_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="paiement_fact_key" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="paiement_id" dataType="DT_STR" length="80" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="id_inscription" dataType="DT_STR" length="80" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="etudiant_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="formation_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date_paiement_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="montant" dataType="DT_NUMERIC" length="0" precision="12" scale="2" codePage="0"/&gt;&lt;referenceColumn name="mode_paiement" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="reference_transaction" dataType="DT_STR" length="150" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_paiement_id_clean]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Connections[OleDbConnection]"
+                  connectionManagerID="{8F3B7821-4889-4EC0-9716-1027879958C8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_SQL_DW_Universite]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Inputs[Entrée de recherche].Columns[cv_paiement_id_clean]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="cv_paiement_id_clean"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_paiement_id_clean]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">paiement_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\LK_Date"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="LK_Date"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dw].[Dim_Date]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[Dim_Date]) [refTable]
+where [refTable].[date_complete] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="date_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date_complete" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="jour_numero" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="jour_semaine_numero" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="jour_semaine_nom" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="mois_numero" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="mois_nom" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="trimestre" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="annee" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="annee_academique" dataType="DT_STR" length="9" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="est_weekend" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_date_paiement]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\LK_Date.Connections[OleDbConnection]"
+                  connectionManagerID="{8F3B7821-4889-4EC0-9716-1027879958C8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_SQL_DW_Universite]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\LK_Date.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\LK_Date.Inputs[Entrée de recherche].Columns[cv_date_paiement]"
+                      cachedDataType="dbDate"
+                      cachedName="cv_date_paiement"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_date_paiement]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">date_complete</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\LK_Date.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\LK_Date.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\LK_Date.Outputs[Sortie de recherche avec correspondance].Columns[date_paiement_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Tâche de flux de données\LK_Date.Outputs[Sortie de recherche avec correspondance].Columns[date_paiement_key]"
+                      name="date_paiement_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">date_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\LK_Date.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\LK_Date.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\LK_Date.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Tâche de flux de données\LK_Date.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\LK_Date.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\LK_Date.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\LK_Date.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\LK_Date.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\LK_Inscription"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="LK_Inscription"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dw].[Fact_Inscription]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[Fact_Inscription]) [refTable]
+where [refTable].[id_inscription] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="inscription_fact_key" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="id_inscription" dataType="DT_STR" length="80" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="etudiant_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="formation_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date_inscription_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="annee_academique" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="montant_attendu" dataType="DT_NUMERIC" length="0" precision="12" scale="2" codePage="0"/&gt;&lt;referenceColumn name="est_redoublant" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="est_abandon" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_id_inscription_clean]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\LK_Inscription.Connections[OleDbConnection]"
+                  connectionManagerID="{8F3B7821-4889-4EC0-9716-1027879958C8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_SQL_DW_Universite]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\LK_Inscription.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\LK_Inscription.Inputs[Entrée de recherche].Columns[cv_id_inscription_clean]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="cv_id_inscription_clean"
+                      lineageId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données].Columns[cv_id_inscription_clean]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">id_inscription</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\LK_Inscription.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie de recherche avec correspondance].Columns[etudiant_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie de recherche avec correspondance].Columns[etudiant_key]"
+                      name="etudiant_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">etudiant_key</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie de recherche avec correspondance].Columns[formation_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie de recherche avec correspondance].Columns[formation_key]"
+                      name="formation_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">formation_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\LK_Inscription.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Tâche de flux de données\LK_Inscription.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\RC_Source_Paiements"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Nombre de lignes;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Compte les lignes à mesure qu'elles franchissent un flux de données. Par exemple, utilisez le nombre de lignes traitées pour déterminer s'il faut ou non effectuer les opérations de nettoyage, ou mettez à jour le texte dans un message électronique pour communiquer l'état du traitement."
+              name="RC_Source_Paiements">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nombre de lignes."
+                  name="VariableName">User::NbSiurcePaiements</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\RC_Source_Paiements.Inputs[Nombre de lignes entrée 1]"
+                  hasSideEffects="true"
+                  name="Nombre de lignes entrée 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\RC_Source_Paiements.Outputs[Nombre de lignes sortie 1]"
+                  name="Nombre de lignes sortie 1"
+                  synchronousInputId="Package\Tâche de flux de données\RC_Source_Paiements.Inputs[Nombre de lignes entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\STG_Paiements"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="STG_Paiements"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[staging].[Paiements]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\STG_Paiements.Connections[OleDbConnection]"
+                  connectionManagerID="{8F3B7821-4889-4EC0-9716-1027879958C8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_SQL_DW_Universite]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[paiement_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[paiement_id]"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[paiement_id]"
+                      name="paiement_id"
+                      truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[id_inscription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[id_inscription]"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[id_inscription]"
+                      name="id_inscription"
+                      truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[matricule]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[matricule]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[matricule]"
+                      name="matricule"
+                      truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[annee_academique]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[annee_academique]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[annee_academique]"
+                      name="annee_academique"
+                      truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[date_paiement]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[date_paiement]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[date_paiement]"
+                      name="date_paiement"
+                      truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[montant]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[montant]"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[montant]"
+                      name="montant"
+                      truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[mode_paiement]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[mode_paiement]"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[mode_paiement]"
+                      name="mode_paiement"
+                      truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[reference]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[reference]"
+                      length="150"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[reference]"
+                      name="reference"
+                      truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[statut_transaction]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[statut_transaction]"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].Columns[statut_transaction]"
+                      name="statut_transaction"
+                      truncationRowDisposition="RedirectRow" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[paiement_id]"
+                      dataType="wstr"
+                      length="80"
+                      name="paiement_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[id_inscription]"
+                      dataType="wstr"
+                      length="80"
+                      name="id_inscription" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[matricule]"
+                      dataType="wstr"
+                      length="50"
+                      name="matricule" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[annee_academique]"
+                      dataType="wstr"
+                      length="50"
+                      name="annee_academique" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[date_paiement]"
+                      dataType="wstr"
+                      length="50"
+                      name="date_paiement" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[montant]"
+                      dataType="wstr"
+                      length="80"
+                      name="montant" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[mode_paiement]"
+                      dataType="wstr"
+                      length="100"
+                      name="mode_paiement" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[reference]"
+                      dataType="wstr"
+                      length="150"
+                      name="reference" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB].ExternalColumns[statut_transaction]"
+                      dataType="wstr"
+                      length="80"
+                      name="statut_transaction" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[paiement_id]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[paiement_id]"
+                      name="paiement_id" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[id_inscription]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[id_inscription]"
+                      name="id_inscription" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[matricule]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[matricule]"
+                      name="matricule" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[annee_academique]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[annee_academique]"
+                      name="annee_academique" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[date_paiement]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[date_paiement]"
+                      name="date_paiement" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[montant]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[montant]"
+                      name="montant" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[mode_paiement]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[mode_paiement]"
+                      name="mode_paiement" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[reference]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[reference]"
+                      name="reference" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[statut_transaction]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[statut_transaction]"
+                      name="statut_transaction" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Nombre de lignes sortie 1]"
+              endId="Package\Tâche de flux de données\DC_Nettoyage.Inputs[Entrée de colonne dérivée]"
+              name="Nombre de lignes sortie 1"
+              startId="Package\Tâche de flux de données\RC_Source_Paiements.Outputs[Nombre de lignes sortie 1]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie d'erreur de conversion de données]"
+              endId="Package\Tâche de flux de données\DC_Rejet_Montant.Inputs[Entrée de colonne dérivée]"
+              name="Sortie d'erreur de conversion de données"
+              startId="Package\Tâche de flux de données\CV_Montant.Outputs[Sortie d'erreur de conversion de données]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée]"
+              endId="Package\Tâche de flux de données\CS_Qualite_Base.Inputs[Entrée de fractionnement conditionnel]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Tâche de flux de données\DC_Nettoyage.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée1]"
+              endId="Package\Tâche de flux de données\CV_Montant.Inputs[Entrée de conversion de données]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Tâche de flux de données\DC_Preparation_Montant.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de conversion de données]"
+              endId="Package\Tâche de flux de données\CS_Montant.Inputs[Entrée de fractionnement conditionnel]"
+              name="Sortie de conversion de données"
+              startId="Package\Tâche de flux de données\CV_Montant.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de conversion de données1]"
+              endId="Package\Tâche de flux de données\LK_Inscription.Inputs[Entrée de recherche]"
+              name="Sortie de conversion de données"
+              startId="Package\Tâche de flux de données\CV_DatePaiement.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\Tâche de flux de données\LK_Date.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Tâche de flux de données\LK_Inscription.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance1]"
+              endId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Tâche de flux de données\LK_Date.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de recherche sans correspondance]"
+              endId="Package\Tâche de flux de données\Fact_Paiement.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de recherche sans correspondance"
+              startId="Package\Tâche de flux de données\LK_AntiDoublon_Paiement.Outputs[Sortie de recherche sans correspondance]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+              endId="Package\Tâche de flux de données\RC_Source_Paiements.Inputs[Nombre de lignes entrée 1]"
+              name="Sortie de source OLE DB"
+              startId="Package\Tâche de flux de données\STG_Paiements.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[VALIDE]"
+              endId="Package\Tâche de flux de données\DC_Preparation_Montant.Inputs[Entrée de colonne dérivée]"
+              name="VALIDE"
+              startId="Package\Tâche de flux de données\CS_Qualite_Base.Outputs[VALIDE]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[VALIDE1]"
+              endId="Package\Tâche de flux de données\CV_DatePaiement.Inputs[Entrée de conversion de données]"
+              name="VALIDE"
+              startId="Package\Tâche de flux de données\CS_Montant.Outputs[VALIDE]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\Tâche de flux de données"
+          TopLeft="275.000000585403,67.2941175880729" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <AnnotationLayout
+          Text="STG_Paiements&#xD;&#xA;      ↓&#xD;&#xA;RC_Source_Paiements&#xD;&#xA;      ↓&#xD;&#xA;DC_Nettoyage&#xD;&#xA;      ↓&#xD;&#xA;CS_Qualite_Base&#xD;&#xA;      ├── REJET_CLE&#xD;&#xA;      └── VALIDE&#xD;&#xA;            ↓&#xD;&#xA;DC_Preparation_Montant&#xD;&#xA;            ↓&#xD;&#xA;CV_Montant&#xD;&#xA;      ├── ERROR → audit.Rejets&#xD;&#xA;      └── OK&#xD;&#xA;            ↓&#xD;&#xA;CS_Montant&#xD;&#xA;      ├── montant invalide → audit.Rejets&#xD;&#xA;      └── OK&#xD;&#xA;            ↓&#xD;&#xA;CV_DatePaiement&#xD;&#xA;      ├── ERROR → audit.Rejets&#xD;&#xA;      └── OK&#xD;&#xA;            ↓&#xD;&#xA;LK_Inscription&#xD;&#xA;      ├── NO MATCH → audit.Rejets&#xD;&#xA;      └── MATCH&#xD;&#xA;            ↓&#xD;&#xA;LK_Date&#xD;&#xA;      ├── NO MATCH → audit.Rejets&#xD;&#xA;      └── MATCH&#xD;&#xA;            ↓&#xD;&#xA;LK_AntiDoublon_Paiement&#xD;&#xA;      ├── MATCH → ignorer&#xD;&#xA;      └── NO MATCH&#xD;&#xA;            ↓&#xD;&#xA;RC_AInserer&#xD;&#xA;            ↓&#xD;&#xA;Fact_Paiement"
+          ParentId="Package\Tâche de flux de données"
+          FontInfo="{assembly:Null}"
+          Size="236.8,646.4"
+          Id="47db8a84-bef6-4ce1-87c9-2d5a526c5327"
+          TopLeft="27.1428572006371,48.9411764276894" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Tâche de flux de données\STG_Paiements"
+          TopLeft="337.142857860549,84.011764675719" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Tâche de flux de données\RC_Source_Paiements"
+          TopLeft="595.714286982405,87.7999999658151" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          TopLeft="489.142857860549,106.705882320767">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="106.571429121856,0"
+              Start="0,0"
+              End="99.0714291218563,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="99.0714291218563,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\Tâche de flux de données\DC_Nettoyage"
+          TopLeft="339.285715007965,184.917646939511" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Nombre de lignes sortie 1]"
+          TopLeft="687.314286982405,129.399999965815">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-275.228571974441,55.517646973696"
+              Start="0,0"
+              End="-275.228571974441,48.017646973696">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.758823486848" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.758823486848"
+                    Point2="0,27.758823486848"
+                    Point3="-4,27.758823486848" />
+                  <mssgle:LineSegment
+                    End="-271.228571974441,27.758823486848" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-271.228571974441,27.758823486848"
+                    Point2="-275.228571974441,27.758823486848"
+                    Point3="-275.228571974441,31.758823486848" />
+                  <mssgle:LineSegment
+                    End="-275.228571974441,48.017646973696" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Tâche de flux de données\CS_Qualite_Base"
+          TopLeft="625.000001330461,189.505882229607" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée]"
+          TopLeft="484.885715007965,208.011764584559">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.114286322497,0"
+              Start="0,0"
+              End="132.614286322497,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="132.614286322497,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="196,41.6"
+          Id="Package\Tâche de flux de données\DC_Preparation_Montant"
+          TopLeft="342.857143586996,269.035293924602" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[VALIDE]"
+          TopLeft="703.800001330461,231.105882229607">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-262.942857743466,37.9294116949951"
+              Start="0,0"
+              End="-262.942857743466,30.4294116949951">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.9647058474975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.9647058474975"
+                    Point2="0,18.9647058474975"
+                    Point3="-4,18.9647058474975" />
+                  <mssgle:LineSegment
+                    End="-258.942857743466,18.9647058474975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-258.942857743466,18.9647058474975"
+                    Point2="-262.942857743466,18.9647058474975"
+                    Point3="-262.942857743466,22.9647058474975" />
+                  <mssgle:LineSegment
+                    End="-262.942857743466,30.4294116949951" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-148.862561684233,23.9647058474975,34.782265625,9.2705078125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\Tâche de flux de données\CV_Montant"
+          TopLeft="652.142858531098,274.388235096381" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée1]"
+          TopLeft="538.857143586996,292.511764510491">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="113.285714944103,0"
+              Start="0,0"
+              End="105.785714944103,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="105.785714944103,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Tâche de flux de données\DC_Rejet_Montant"
+          TopLeft="970.714287780682,272.094117451333" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie d'erreur de conversion de données]"
+          TopLeft="788.142858531098,294.041176273857">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="182.571429249584,0"
+              Start="0,0"
+              End="175.071429249584,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="175.071429249584,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-3.97252756270814,5,183.016484375,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="135.2,41.6"
+          Id="Package\Tâche de flux de données\CS_Montant"
+          TopLeft="347.142857881833,361.564705608203" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de conversion de données]"
+          TopLeft="720.142858531098,315.988235096381">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-305.400000649265,45.5764705118218"
+              Start="0,0"
+              End="-305.400000649265,38.0764705118218">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7882352559109" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7882352559109"
+                    Point2="0,22.7882352559109"
+                    Point3="-4,22.7882352559109" />
+                  <mssgle:LineSegment
+                    End="-301.400000649265,22.7882352559109" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-301.400000649265,22.7882352559109"
+                    Point2="-305.400000649265,22.7882352559109"
+                    Point3="-305.400000649265,26.7882352559109" />
+                  <mssgle:LineSegment
+                    End="-305.400000649265,38.0764705118218" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Tâche de flux de données\CV_DatePaiement"
+          TopLeft="632.85714420433,359.270587963155" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[VALIDE1]"
+          TopLeft="482.342857881833,381.217646785679">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="150.514286322497,0"
+              Start="0,0"
+              End="143.014286322497,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="143.014286322497,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="54.1160103487486,5,34.782265625,9.2705078125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\Tâche de flux de données\LK_Inscription"
+          TopLeft="344.285715018608,433.447058486371" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de conversion de données1]"
+          TopLeft="714.05714420433,400.870587963155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-296.971429185722,32.5764705232165"
+              Start="0,0"
+              End="-296.971429185722,25.0764705232165">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.2882352616083" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.2882352616083"
+                    Point2="0,16.2882352616083"
+                    Point3="-4,16.2882352616083" />
+                  <mssgle:LineSegment
+                    End="-292.971429185722,16.2882352616083" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-292.971429185722,16.2882352616083"
+                    Point2="-296.971429185722,16.2882352616083"
+                    Point3="-296.971429185722,20.2882352616083" />
+                  <mssgle:LineSegment
+                    End="-296.971429185722,25.0764705232165" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="117.6,41.6"
+          Id="Package\Tâche de flux de données\LK_Date"
+          TopLeft="672.142858573673,437.270587894785" />
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\Tâche de flux de données\LK_AntiDoublon_Paiement"
+          TopLeft="343.571429302802,520.623528998193" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="489.885715018608,456.158823190578">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="182.257143555065,0"
+              Start="0,0"
+              End="174.757143555065,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="174.757143555065,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-4.29843994121769,5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="730.942858573673,478.870587894785">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-286.171429270871,41.7529411034084"
+              Start="0,0"
+              End="-286.171429270871,34.2529411034084">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.8764705517042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.8764705517042"
+                    Point2="0,20.8764705517042"
+                    Point3="-4,20.8764705517042" />
+                  <mssgle:LineSegment
+                    End="-282.171429270871,20.8764705517042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-282.171429270871,20.8764705517042"
+                    Point2="-286.171429270871,20.8764705517042"
+                    Point3="-286.171429270871,24.8764705517042" />
+                  <mssgle:LineSegment
+                    End="-286.171429270871,34.2529411034084" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-234.762726354185,25.8764705517042,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\Tâche de flux de données\Fact_Paiement"
+          TopLeft="805.000001713634,525.917646654636" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche sans correspondance]"
+          TopLeft="545.971429302802,544.070587826414">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="259.028572410832,0"
+              Start="0,0"
+              End="251.528572410832,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="251.528572410832,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="34.2622744866658,5,183.0040234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\STG_Paiements">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\LK_Inscription">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[Fact_Inscription]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\LK_Date">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[Dim_Date]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\LK_AntiDoublon_Paiement">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[Fact_Paiement]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Fact_Paiement">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

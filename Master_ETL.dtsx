@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{01D67AA0-CB61-4C3A-AD13-B7198C7B4C1C}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{766CAFA2-9073-4839-983B-B18227845BFE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -32,6 +32,7 @@
       DTS:refId="Package\01_Staging"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="Tâche d'exécution de package"
+      DTS:Disabled="True"
       DTS:DTSID="{2F399237-45C1-4474-A31C-D80EBBBF0827}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
@@ -59,7 +60,7 @@
       <DTS:ObjectData>
         <ExecutePackageTask>
           <UseProjectReference>True</UseProjectReference>
-          <PackageName>02_Load_Dimensions_Conformes.dtsx</PackageName>
+          <PackageName>02_Load_Dimensions.dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -121,7 +122,6 @@
       DTS:refId="Package\06_Quality_Checks"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="Tâche d'exécution de package"
-      DTS:Disabled="True"
       DTS:DTSID="{7AF69478-4915-4133-88D0-599050BAEEE1}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
