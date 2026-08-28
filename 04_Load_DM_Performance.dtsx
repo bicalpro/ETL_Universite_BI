@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{9060D8AB-4EA9-4BEF-97D5-76E08738296C}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{C682CE0B-15CF-4513-9415-95C8C4903599}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -507,6 +507,12 @@
                       cachedLength="80"
                       cachedName="note_clean"
                       lineageId="Package\DFT_Fact_ResultatUEs\DC_Clean.Outputs[Sortie de colonne dérivée].Columns[note_clean]" />
+                    <inputColumn
+                      refId="Package\DFT_Fact_ResultatUEs\CV_notes.Inputs[Entrée de conversion de données].Columns[annee_academique_clean]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="annee_academique_clean"
+                      lineageId="Package\DFT_Fact_ResultatUEs\DC_Clean.Outputs[Sortie de colonne dérivée].Columns[annee_academique_clean]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -532,6 +538,28 @@
                           dataType="System.Int32"
                           description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
                           name="SourceInputColumnLineageID">#{Package\DFT_Fact_ResultatUEs\DC_Clean.Outputs[Sortie de colonne dérivée].Columns[note_clean]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_ResultatUEs\CV_notes.Outputs[Sortie de conversion de données].Columns[Copy of annee_academique_clean]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT_Fact_ResultatUEs\CV_notes.Outputs[Sortie de conversion de données].Columns[Copy of annee_academique_clean]"
+                      name="Copy of annee_academique_clean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Fact_ResultatUEs\DC_Clean.Outputs[Sortie de colonne dérivée].Columns[annee_academique_clean]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
@@ -689,6 +717,12 @@
                       cachedLength="80"
                       cachedName="note"
                       lineageId="Package\DFT_Fact_ResultatUEs\Staging_Notes.Outputs[Sortie de source OLE DB].Columns[note]" />
+                    <inputColumn
+                      refId="Package\DFT_Fact_ResultatUEs\DC_Clean.Inputs[Entrée de colonne dérivée].Columns[annee_academique]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="annee_academique"
+                      lineageId="Package\DFT_Fact_ResultatUEs\Staging_Notes.Outputs[Sortie de source OLE DB].Columns[annee_academique]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -814,6 +848,29 @@
                           description="Expression claire de colonne dérivée"
                           expressionType="Notify"
                           name="FriendlyExpression">ISNULL(note) ? "" : REPLACE(TRIM(note),".",",")</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_ResultatUEs\DC_Clean.Outputs[Sortie de colonne dérivée].Columns[annee_academique_clean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT_Fact_ResultatUEs\DC_Clean.Outputs[Sortie de colonne dérivée].Columns[annee_academique_clean]"
+                      name="annee_academique_clean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\DFT_Fact_ResultatUEs\Staging_Notes.Outputs[Sortie de source OLE DB].Columns[annee_academique]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(annee_academique)</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1054,6 +1111,14 @@
                       cachedPrecision="18"
                       externalMetadataColumnId="Package\DFT_Fact_ResultatUEs\Fact_ResultatUE.Inputs[Entrée de destination OLE DB].ExternalColumns[note]"
                       lineageId="Package\DFT_Fact_ResultatUEs\CV_notes.Outputs[Sortie de conversion de données].Columns[cv_note_clean]" />
+                    <inputColumn
+                      refId="Package\DFT_Fact_ResultatUEs\Fact_ResultatUE.Inputs[Entrée de destination OLE DB].Columns[Copy of annee_academique_clean]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of annee_academique_clean"
+                      externalMetadataColumnId="Package\DFT_Fact_ResultatUEs\Fact_ResultatUE.Inputs[Entrée de destination OLE DB].ExternalColumns[annee_academique]"
+                      lineageId="Package\DFT_Fact_ResultatUEs\CV_notes.Outputs[Sortie de conversion de données].Columns[Copy of annee_academique_clean]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1099,6 +1164,12 @@
                       refId="Package\DFT_Fact_ResultatUEs\Fact_ResultatUE.Inputs[Entrée de destination OLE DB].ExternalColumns[est_valide]"
                       dataType="bool"
                       name="est_valide" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Fact_ResultatUEs\Fact_ResultatUE.Inputs[Entrée de destination OLE DB].ExternalColumns[annee_academique]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="annee_academique" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2888,11 +2959,6 @@ where [refTable].[code_ue] = ?</property>
               name="Sortie d'erreur de conversion de données"
               startId="Package\DFT_Fact_ResultatUEs\CV_notes.Outputs[Sortie d'erreur de conversion de données]" />
             <path
-              refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de colonne dérivée]"
-              endId="Package\DFT_Fact_ResultatUEs\DC_valide.Inputs[Entrée de colonne dérivée]"
-              name="Sortie de colonne dérivée"
-              startId="Package\DFT_Fact_ResultatUEs\DC_absent.Outputs[Sortie de colonne dérivée]" />
-            <path
               refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de colonne dérivée1]"
               endId="Package\DFT_Fact_ResultatUEs\Lookup anti-doublon.Inputs[Entrée de recherche]"
               name="Sortie de colonne dérivée"
@@ -2903,22 +2969,27 @@ where [refTable].[code_ue] = ?</property>
               name="Sortie de colonne dérivée"
               startId="Package\DFT_Fact_ResultatUEs\DC_Clean.Outputs[Sortie de colonne dérivée]" />
             <path
-              refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données3]"
+              refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de colonne dérivée]"
+              endId="Package\DFT_Fact_ResultatUEs\DC_valide.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT_Fact_ResultatUEs\DC_absent.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données]"
               endId="Package\DFT_Fact_ResultatUEs\CS_quality.Inputs[Entrée de fractionnement conditionnel]"
               name="Sortie de conversion de données"
               startId="Package\DFT_Fact_ResultatUEs\CV_id_inscripton.Outputs[Sortie de conversion de données]" />
             <path
-              refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données2]"
+              refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données1]"
               endId="Package\DFT_Fact_ResultatUEs\CV_id_inscripton.Inputs[Entrée de conversion de données]"
               name="Sortie de conversion de données"
               startId="Package\DFT_Fact_ResultatUEs\CV_id_notes.Outputs[Sortie de conversion de données]" />
             <path
-              refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données1]"
+              refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données2]"
               endId="Package\DFT_Fact_ResultatUEs\CV_id_notes.Inputs[Entrée de conversion de données]"
               name="Sortie de conversion de données"
               startId="Package\DFT_Fact_ResultatUEs\CV_id_eu.Outputs[Sortie de conversion de données]" />
             <path
-              refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données]"
+              refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données3]"
               endId="Package\DFT_Fact_ResultatUEs\CV_id_eu.Inputs[Entrée de conversion de données]"
               name="Sortie de conversion de données"
               startId="Package\DFT_Fact_ResultatUEs\CV_notes.Outputs[Sortie de conversion de données]" />
@@ -2933,6 +3004,11 @@ where [refTable].[code_ue] = ?</property>
               name="Sortie de recherche avec correspondance"
               startId="Package\DFT_Fact_ResultatUEs\Lookup Dim_UE.Outputs[Sortie de recherche avec correspondance]" />
             <path
+              refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de recherche sans correspondance2]"
+              endId="Package\DFT_Fact_ResultatUEs\Rejet1 1 1 1.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de recherche sans correspondance"
+              startId="Package\DFT_Fact_ResultatUEs\Lookup Dim_UE.Outputs[Sortie de recherche sans correspondance]" />
+            <path
               refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de recherche sans correspondance]"
               endId="Package\DFT_Fact_ResultatUEs\Fact_ResultatUE.Inputs[Entrée de destination OLE DB]"
               name="Sortie de recherche sans correspondance"
@@ -2942,11 +3018,6 @@ where [refTable].[code_ue] = ?</property>
               endId="Package\DFT_Fact_ResultatUEs\Rejet1 1 1.Inputs[Entrée de destination OLE DB]"
               name="Sortie de recherche sans correspondance"
               startId="Package\DFT_Fact_ResultatUEs\LK_Fact_Inscription.Outputs[Sortie de recherche sans correspondance]" />
-            <path
-              refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de recherche sans correspondance2]"
-              endId="Package\DFT_Fact_ResultatUEs\Rejet1 1 1 1.Inputs[Entrée de destination OLE DB]"
-              name="Sortie de recherche sans correspondance"
-              startId="Package\DFT_Fact_ResultatUEs\Lookup Dim_UE.Outputs[Sortie de recherche sans correspondance]" />
             <path
               refId="Package\DFT_Fact_ResultatUEs.Paths[Sortie de source OLE DB]"
               endId="Package\DFT_Fact_ResultatUEs\RC_Source_Resultats.Inputs[Nombre de lignes entrée 1]"
@@ -2982,53 +3053,113 @@ where [refTable].[code_ue] = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="136.8,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\CV_id_notes"
-          TopLeft="566.68571548693,236.599999829075" />
+          Size="117.6,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\Rejet1 1"
+          TopLeft="399.285715135689,8.24705882822147" />
         <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\Lookup Dim_UE"
-          TopLeft="406.507937373285,400.926797070657" />
+          Size="129.6,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\DC_absent"
+          TopLeft="685.228572868511,394.1294114557" />
         <NodeLayout
-          Size="146.4,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\Staging_Notes"
-          TopLeft="43.5714286641808,46.9529411717785" />
-        <NodeLayout
-          Size="156.8,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\CV_id_inscripton"
-          TopLeft="350.257143597639,232.776470420662" />
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\Fact_ResultatUE"
-          TopLeft="119.603174857778,522.260130297635" />
-        <NodeLayout
-          Size="178.4,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\RC_Source_Resultats"
-          TopLeft="49.7857143799872,133.511764630139" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\LK_Fact_Inscription"
-          TopLeft="119.523809778244,401.521568311965" />
-        <NodeLayout
-          Size="124,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\DC_Clean"
-          TopLeft="282.222222823,131.920261358739" />
-        <NodeLayout
-          Size="122.4,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\CV_id_eu"
-          TopLeft="750.714287312359,230.482352775614" />
+          Size="124.8,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\DC_valide"
+          TopLeft="690.94285859496,521.835293696701" />
         <NodeLayout
           Size="175.2,41.6"
           Id="Package\DFT_Fact_ResultatUEs\Lookup anti-doublon"
           TopLeft="436.111112039477,523.53464010044" />
         <NodeLayout
           Size="122.4,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\CV_id_eu"
+          TopLeft="750.714287312359,230.482352775614" />
+        <NodeLayout
+          Size="117.6,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\Rejet1 2"
+          TopLeft="908.571430505539,29.6470588851965" />
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\Rejet1 1 1"
+          TopLeft="2.55795384873636E-13,286.624836475588" />
+        <NodeLayout
+          Size="122.4,41.6"
           Id="Package\DFT_Fact_ResultatUEs\CV_notes"
           TopLeft="746.746033335657,125.972548945652" />
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\Staging_Notes"
+          TopLeft="43.5714286641808,46.9529411717785" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\LK_Fact_Inscription"
+          TopLeft="119.523809778244,401.521568311965" />
         <NodeLayout
           Size="128,41.6"
           Id="Package\DFT_Fact_ResultatUEs\CS_quality"
           TopLeft="162.301587647085,237.874509631879" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\Lookup Dim_UE"
+          TopLeft="406.507937373285,400.926797070657" />
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\Rejet1 1 1 1"
+          TopLeft="313.57142923894,301.294117382963" />
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\CV_id_notes"
+          TopLeft="566.68571548693,236.599999829075" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\Fact_ResultatUE"
+          TopLeft="119.603174857778,522.260130297635" />
+        <NodeLayout
+          Size="108.8,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\Rejet1"
+          TopLeft="613.57142987756,5.15294118317243" />
+        <NodeLayout
+          Size="124,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\DC_Clean"
+          TopLeft="282.222222823,131.920261358739" />
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\Rejet1 1 1 2"
+          TopLeft="38.5714286535368,185.058823367201" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\RC_Source_Resultats"
+          TopLeft="49.7857143799872,133.511764630139" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\DFT_Fact_ResultatUEs\CV_id_inscripton"
+          TopLeft="350.257143597639,232.776470420662" />
+        <NodeLayout
+          Size="118.4,44.8"
+          Id="Package\DFT_Fact_ResultatUEs\CS_Note"
+          TopLeft="471.428572432119,124.952941103408" />
+        <EdgeLayout
+          Id="Package\DFT_Fact_ResultatUEs.Paths[NOTE_A_CONVERTIR]"
+          TopLeft="589.828572432119,147.06274502453">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.917460903538,0"
+              Start="0,0"
+              End="149.417460903538,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="149.417460903538,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="26.273789045519,5,96.8698828125,10.88671875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Fact_ResultatUEs.Paths[Nombre de lignes sortie 1]"
           TopLeft="228.185714379987,153.516012994439">
@@ -3051,344 +3182,6 @@ where [refTable].[code_ue] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de source OLE DB]"
-          TopLeft="116.771428664181,88.5529411717785">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="22.2142857158064,44.9588234583607"
-              Start="0,0"
-              End="22.2142857158064,37.4588234583607">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.4794117291803" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.4794117291803"
-                    Point2="0,22.4794117291803"
-                    Point3="4,22.4794117291803" />
-                  <mssgle:LineSegment
-                    End="18.2142857158064,22.4794117291803" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.2142857158064,22.4794117291803"
-                    Point2="22.2142857158064,22.4794117291803"
-                    Point3="22.2142857158064,26.4794117291803" />
-                  <mssgle:LineSegment
-                    End="22.2142857158064,37.4588234583607" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de recherche sans correspondance]"
-          TopLeft="436.111112039477,543.697385199037">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-161.307937181699,0"
-              Start="0,0"
-              End="-153.807937181699,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-153.807937181699,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-168.4059803096,5,183.0040234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de recherche avec correspondance]"
-          TopLeft="290.723809778244,422.024182691311">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="115.784127595041,0"
-              Start="0,0"
-              End="108.284127595041,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="108.284127595041,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-37.5349479212297,5,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données3]"
-          TopLeft="350.257143597639,256.125490026271">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-59.9555559505545,0"
-              Start="0,0"
-              End="-52.4555559505545,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-52.4555559505545,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données2]"
-          TopLeft="566.68571548693,255.488235124869">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-59.6285718892911,0"
-              Start="0,0"
-              End="-52.1285718892911,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-52.1285718892911,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-34.0642859446455,5,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données1]"
-          TopLeft="750.714287312359,254.341176302345">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-47.2285718254288,0"
-              Start="0,0"
-              End="-39.7285718254288,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-39.7285718254288,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.8642859127144,5,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données]"
-          TopLeft="809.930160324008,167.572548945652">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,62.9098038299618"
-              Start="0,0"
-              End="0,55.4098038299618">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,55.4098038299618" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,19.7049019149809,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[RESULTAT_VALIDE]"
-          TopLeft="229.312698712665,279.474509631879">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,122.047058680086"
-              Start="0,0"
-              End="0,114.547058680086">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,114.547058680086" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-51.9066015625,49.273529340043,103.813203125,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\DC_absent"
-          TopLeft="685.228572868511,394.1294114557" />
-        <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de recherche avec correspondance1]"
-          TopLeft="560.107937373285,418.328104263178">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="125.120635495226,0"
-              Start="0,0"
-              End="117.620635495226,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="117.620635495226,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-32.8666939711373,5,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\DC_valide"
-          TopLeft="690.94285859496,521.835293696701" />
-        <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de colonne dérivée]"
-          TopLeft="751.685715731735,435.7294114557">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,86.1058822410016"
-              Start="0,0"
-              End="0,78.6058822410016">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,78.6058822410016" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de colonne dérivée1]"
-          TopLeft="690.94285859496,543.484966898571">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-79.6317465554832,0"
-              Start="0,0"
-              End="-72.1317465554832,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-72.1317465554832,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="118.4,44.8"
-          Id="Package\DFT_Fact_ResultatUEs\CS_Note"
-          TopLeft="471.428572432119,124.952941103408" />
-        <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de colonne dérivée2]"
-          TopLeft="406.222222823,150.036601231074">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="65.2063496091196,0"
-              Start="0,0"
-              End="57.7063496091196,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="57.7063496091196,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[NOTE_A_CONVERTIR]"
-          TopLeft="589.828572432119,147.06274502453">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="156.917460903538,0"
-              Start="0,0"
-              End="149.417460903538,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="149.417460903538,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="17.4051367017692,5,114.6071875,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="108.8,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\Rejet1"
-          TopLeft="613.57142987756,5.15294118317243" />
-        <NodeLayout
-          Size="117.6,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\Rejet1 1"
-          TopLeft="399.285715135689,8.24705882822147" />
-        <NodeLayout
-          Size="127.2,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\Rejet1 1 1"
-          TopLeft="2.55795384873636E-13,286.624836475588" />
         <EdgeLayout
           Id="Package\DFT_Fact_ResultatUEs.Paths[ABSENT_SANS_NOTE]"
           TopLeft="512.228572432119,124.952941103408">
@@ -3426,38 +3219,72 @@ where [refTable].[code_ue] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[NOTE_VIDE_NON_ABSENT]"
-          TopLeft="549.028572432119,124.952941103408">
+          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de source OLE DB]"
+          TopLeft="116.771428664181,88.5529411717785">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="118.942857445441,-78.199999920236"
+              EndConnector="22.2142857158064,44.9588234583607"
               Start="0,0"
-              End="118.942857445441,-70.699999920236">
+              End="22.2142857158064,37.4588234583607">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-27.9055999674563" />
+                    End="0,18.4794117291803" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-27.9055999674563"
-                    Point2="0,-31.9055999674563"
-                    Point3="4,-31.9055999674563" />
+                    Point1="0,18.4794117291803"
+                    Point2="0,22.4794117291803"
+                    Point3="4,22.4794117291803" />
                   <mssgle:LineSegment
-                    End="114.942857445441,-31.9055999674563" />
+                    End="18.2142857158064,22.4794117291803" />
                   <mssgle:CubicBezierSegment
-                    Point1="114.942857445441,-31.9055999674563"
-                    Point2="118.942857445441,-31.9055999674563"
-                    Point3="118.942857445441,-35.9055999674563" />
+                    Point1="18.2142857158064,22.4794117291803"
+                    Point2="22.2142857158064,22.4794117291803"
+                    Point3="22.2142857158064,26.4794117291803" />
                   <mssgle:LineSegment
-                    End="118.942857445441,-70.699999920236" />
+                    End="22.2142857158064,37.4588234583607" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de recherche sans correspondance2]"
+          TopLeft="483.307937373285,400.926797070657">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-106.136508134345,-58.0326796876935"
+              Start="0,0"
+              End="-106.136508134345,-50.5326796876935">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-25.0163398438468" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-25.0163398438468"
+                    Point2="0,-29.0163398438468"
+                    Point3="-4,-29.0163398438468" />
+                  <mssgle:LineSegment
+                    End="-102.136508134345,-29.0163398438468" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-102.136508134345,-29.0163398438468"
+                    Point2="-106.136508134345,-29.0163398438468"
+                    Point3="-106.136508134345,-33.0163398438468" />
+                  <mssgle:LineSegment
+                    End="-106.136508134345,-50.5326796876935" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-0.997282214779304,-26.9055999674563,120.937421875,10.88671875"
+              BoundingBox="-144.570265785923,-24.0163398438468,183.0040234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3497,84 +3324,232 @@ where [refTable].[code_ue] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="127.2,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\Rejet1 1 1 1"
-          TopLeft="313.57142923894,301.294117382963" />
         <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de recherche sans correspondance2]"
-          TopLeft="483.307937373285,400.926797070657">
+          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de recherche sans correspondance]"
+          TopLeft="436.111112039477,543.697385199037">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-106.136508134345,-58.0326796876935"
+              EndConnector="-161.307937181699,0"
               Start="0,0"
-              End="-106.136508134345,-50.5326796876935">
+              End="-153.807937181699,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-25.0163398438468" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-25.0163398438468"
-                    Point2="0,-29.0163398438468"
-                    Point3="-4,-29.0163398438468" />
-                  <mssgle:LineSegment
-                    End="-102.136508134345,-29.0163398438468" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-102.136508134345,-29.0163398438468"
-                    Point2="-106.136508134345,-29.0163398438468"
-                    Point3="-106.136508134345,-33.0163398438468" />
-                  <mssgle:LineSegment
-                    End="-106.136508134345,-50.5326796876935" />
+                    End="-153.807937181699,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-144.570265785923,-24.0163398438468,183.0040234375,11.609375"
+              BoundingBox="-168.4059803096,5,183.0040234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="127.2,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\Rejet1 1 1 2"
-          TopLeft="38.5714286535368,185.058823367201" />
         <EdgeLayout
-          Id="Package\DFT_Fact_ResultatUEs.Paths[REJET_NOTE]"
-          TopLeft="162.301587647085,258.674509631879">
+          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="560.107937373285,418.328104263178">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-60.1301589935479,-32.0156862646785"
+              EndConnector="125.120635495226,0"
               Start="0,0"
-              End="-60.1301589935479,-24.5156862646785">
+              End="117.620635495226,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-56.1301589935479,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-56.1301589935479,0"
-                    Point2="-60.1301589935479,0"
-                    Point3="-60.1301589935479,-4" />
-                  <mssgle:LineSegment
-                    End="-60.1301589935479,-24.5156862646785" />
+                    End="117.620635495226,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-98.5167605560479,1,76.773203125,16"
+              BoundingBox="-32.866693971137,5,183.3540234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="117.6,41.6"
-          Id="Package\DFT_Fact_ResultatUEs\Rejet1 2"
-          TopLeft="908.571430505539,29.6470588851965" />
+        <EdgeLayout
+          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="290.723809778244,422.024182691311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115.784127595041,0"
+              Start="0,0"
+              End="108.284127595041,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="108.284127595041,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.5349479212295,5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données3]"
+          TopLeft="809.930160324008,167.572548945652">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.9098038299618"
+              Start="0,0"
+              End="0,55.4098038299618">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.4098038299618" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données2]"
+          TopLeft="750.714287312359,254.341176302345">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-47.2285718254288,0"
+              Start="0,0"
+              End="-39.7285718254288,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-39.7285718254288,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données1]"
+          TopLeft="566.68571548693,255.488235124869">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-59.6285718892911,0"
+              Start="0,0"
+              End="-52.1285718892911,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-52.1285718892911,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de conversion de données]"
+          TopLeft="350.257143597639,256.125490026271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-59.9555559505545,0"
+              Start="0,0"
+              End="-52.4555559505545,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-52.4555559505545,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de colonne dérivée2]"
+          TopLeft="406.222222823,150.036601231074">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65.2063496091196,0"
+              Start="0,0"
+              End="57.7063496091196,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="57.7063496091196,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de colonne dérivée1]"
+          TopLeft="690.94285859496,543.484966898571">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-79.6317465554832,0"
+              Start="0,0"
+              End="-72.1317465554832,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-72.1317465554832,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de colonne dérivée]"
+          TopLeft="751.685715731735,435.7294114557">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,86.1058822410016"
+              Start="0,0"
+              End="0,78.6058822410016">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,78.6058822410016" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie d'erreur de conversion de données]"
           TopLeft="807.946033335657,125.972548945652">
@@ -3607,7 +3582,97 @@ where [refTable].[code_ue] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-20.4835318838093,-22.3627450302277,200.3924609375,16"
+              BoundingBox="-11.7955436025595,-22.3627450302277,183.016484375,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Fact_ResultatUEs.Paths[RESULTAT_VALIDE]"
+          TopLeft="229.312698712665,279.474509631879">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,122.047058680086"
+              Start="0,0"
+              End="0,114.547058680086">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,114.547058680086" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-43.03794921875,51.839935590043,86.0758984375,10.8671875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Fact_ResultatUEs.Paths[REJET_NOTE]"
+          TopLeft="162.301587647085,258.674509631879">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-60.1301589935479,-32.0156862646785"
+              Start="0,0"
+              End="-60.1301589935479,-24.5156862646785">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-56.1301589935479,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-56.1301589935479,0"
+                    Point2="-60.1301589935479,0"
+                    Point3="-60.1301589935479,-4" />
+                  <mssgle:LineSegment
+                    End="-60.1301589935479,-24.5156862646785" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-89.6481082122979,1,59.0358984375,10.88671875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Fact_ResultatUEs.Paths[NOTE_VIDE_NON_ABSENT]"
+          TopLeft="549.028572432119,124.952941103408">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118.942857445441,-78.199999920236"
+              Start="0,0"
+              End="118.942857445441,-70.699999920236">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-27.9055999674563" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-27.9055999674563"
+                    Point2="0,-31.9055999674563"
+                    Point3="4,-31.9055999674563" />
+                  <mssgle:LineSegment
+                    End="114.942857445441,-31.9055999674563" />
+                  <mssgle:CubicBezierSegment
+                    Point1="114.942857445441,-31.9055999674563"
+                    Point2="118.942857445441,-31.9055999674563"
+                    Point3="118.942857445441,-35.9055999674563" />
+                  <mssgle:LineSegment
+                    End="118.942857445441,-70.699999920236" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-0.997282214779503,-26.9055999674563,120.937421875,10.88671875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3615,12 +3680,97 @@ where [refTable].[code_ue] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\DFT_Fact_ResultatUEs\Rejet1 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Fact_ResultatUEs\Lookup anti-doublon">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[Fact_ResultatUE]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Fact_ResultatUEs\Rejet1 1 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Fact_ResultatUEs\Staging_Notes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Fact_ResultatUEs\LK_Fact_Inscription">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[Fact_Inscription]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\DFT_Fact_ResultatUEs\Lookup Dim_UE">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -3638,7 +3788,7 @@ where [refTable].[code_ue] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_Fact_ResultatUEs\Staging_Notes">
+    design-time-name="Package\DFT_Fact_ResultatUEs\Rejet1 1 1 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3664,92 +3814,7 @@ where [refTable].[code_ue] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_Fact_ResultatUEs\LK_Fact_Inscription">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dw].[Fact_Inscription]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT_Fact_ResultatUEs\Lookup anti-doublon">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dw].[Fact_ResultatUE]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\DFT_Fact_ResultatUEs\Rejet1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT_Fact_ResultatUEs\Rejet1 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT_Fact_ResultatUEs\Rejet1 1 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT_Fact_ResultatUEs\Rejet1 1 1 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
