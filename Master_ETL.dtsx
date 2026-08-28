@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{766CAFA2-9073-4839-983B-B18227845BFE}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{B6BC6958-5421-400A-BF64-198D939A97E4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -32,7 +32,6 @@
       DTS:refId="Package\01_Staging"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="Tâche d'exécution de package"
-      DTS:Disabled="True"
       DTS:DTSID="{2F399237-45C1-4474-A31C-D80EBBBF0827}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
@@ -50,7 +49,6 @@
       DTS:refId="Package\02_Dimensions"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="Tâche d'exécution de package"
-      DTS:Disabled="True"
       DTS:DTSID="{952E3AB3-52CB-44E0-B1B9-A69C7A26CCD4}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
@@ -68,7 +66,6 @@
       DTS:refId="Package\03_DM_Scolarite"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="Tâche d'exécution de package"
-      DTS:Disabled="True"
       DTS:DTSID="{BE2962CE-ECAA-4728-BA53-5D31882AF622}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
@@ -86,7 +83,6 @@
       DTS:refId="Package\04_DM_Performance"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="Tâche d'exécution de package"
-      DTS:Disabled="True"
       DTS:DTSID="{12EF1104-3555-48F5-9C84-CEBED627BA32}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
@@ -104,7 +100,6 @@
       DTS:refId="Package\05_DM_Ficance"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="Tâche d'exécution de package"
-      DTS:Disabled="True"
       DTS:DTSID="{55390BF7-B688-4DC6-A3A6-44747D257CDC}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"

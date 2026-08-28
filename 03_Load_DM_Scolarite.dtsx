@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="58"
-  DTS:VersionGUID="{E6FAE6CB-5881-4AA3-B3D7-B543D4B7EDE2}">
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{E5CDFF07-6C05-4991-BA03-FB9FF7DDD995}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -686,10 +686,10 @@
                       refId="Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[es_redoublant]"
                       dataType="i4"
                       errorOrTruncationOperation="Calcul"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[es_redoublant]"
                       name="es_redoublant"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -708,10 +708,10 @@
                       refId="Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[est_abandon]"
                       dataType="i4"
                       errorOrTruncationOperation="Calcul"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[est_abandon]"
                       name="est_abandon"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -831,20 +831,20 @@
                       cachedDataType="i4"
                       cachedName="etudiant_key"
                       externalMetadataColumnId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].ExternalColumns[etudiant_key]"
-                      lineageId="Package\DFT_Fact_Inscription\LK_Etudiant.Outputs[Sortie de recherche avec correspondance].Columns[etudiant_key]" />
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[etudiant_key]" />
                     <inputColumn
                       refId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].Columns[formation_key]"
                       cachedDataType="i4"
                       cachedName="formation_key"
                       externalMetadataColumnId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].ExternalColumns[formation_key]"
-                      lineageId="Package\DFT_Fact_Inscription\LK_Formation.Outputs[Sortie de recherche avec correspondance].Columns[formation_key]" />
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[formation_key]" />
                     <inputColumn
                       refId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].Columns[cv_montant_attendu]"
                       cachedDataType="numeric"
                       cachedName="cv_montant_attendu"
                       cachedPrecision="18"
                       externalMetadataColumnId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].ExternalColumns[montant_attendu]"
-                      lineageId="Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_montant_attendu]" />
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_montant_attendu]" />
                     <inputColumn
                       refId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].Columns[cv_annee_academique_clean]"
                       cachedCodepage="1252"
@@ -852,7 +852,7 @@
                       cachedLength="50"
                       cachedName="cv_annee_academique_clean"
                       externalMetadataColumnId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].ExternalColumns[annee_academique]"
-                      lineageId="Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_annee_academique_clean]" />
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_annee_academique_clean]" />
                     <inputColumn
                       refId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].Columns[cv_id_inscription_clean]"
                       cachedCodepage="1252"
@@ -860,25 +860,25 @@
                       cachedLength="80"
                       cachedName="cv_id_inscription_clean"
                       externalMetadataColumnId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].ExternalColumns[id_inscription]"
-                      lineageId="Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_id_inscription_clean]" />
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_id_inscription_clean]" />
                     <inputColumn
                       refId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].Columns[date_key]"
                       cachedDataType="i4"
                       cachedName="date_key"
                       externalMetadataColumnId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].ExternalColumns[date_inscription_key]"
-                      lineageId="Package\DFT_Fact_Inscription\LK_Date.Outputs[Sortie de recherche avec correspondance].Columns[date_key]" />
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[date_key]" />
                     <inputColumn
                       refId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].Columns[es_redoublant]"
                       cachedDataType="i4"
                       cachedName="es_redoublant"
                       externalMetadataColumnId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].ExternalColumns[est_redoublant]"
-                      lineageId="Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[es_redoublant]" />
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[es_redoublant]" />
                     <inputColumn
                       refId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].Columns[est_abandon]"
                       cachedDataType="i4"
                       cachedName="est_abandon"
                       externalMetadataColumnId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB].ExternalColumns[est_abandon]"
-                      lineageId="Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[est_abandon]" />
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[est_abandon]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1162,7 +1162,7 @@ where [refTable].[matricule] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="etudiant_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="matricule" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="nom" dataType="DT_STR" length="150" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="prenom" dataType="DT_STR" length="150" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="sexe" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="date_naissance" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="nationalite" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="type_bac" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="annee_bac" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="email" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="telephone" dataType="DT_STR" length="80" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="boursier" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="type_bourse" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="date_debut_validite" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date_fin_validite" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="est_actuel" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="version_numero" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date_insert" dataType="DT_WSTR" length="27" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="etudiant_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="matricule" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="nom" dataType="DT_STR" length="150" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="prenom" dataType="DT_STR" length="150" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="sexe" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="date_naissance" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="nationalite" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="type_bac" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="annee_bac" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="email" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="telephone" dataType="DT_STR" length="80" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="boursier" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="type_bourse" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="date_debut_validite" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date_fin_validite" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="est_actuel" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="version_numero" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date_insert" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -1321,7 +1321,7 @@ where [refTable].[code_formation] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="formation_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="code_formation" dataType="DT_STR" length="80" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="libelle_formation" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="campus" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ufr" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="departement" dataType="DT_STR" length="150" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="niveau" dataType="DT_STR" length="80" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="modalite" dataType="DT_STR" length="80" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="frais_annuels" dataType="DT_NUMERIC" length="0" precision="12" scale="2" codePage="0"/&gt;&lt;referenceColumn name="date_insert" dataType="DT_WSTR" length="27" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="formation_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="code_formation" dataType="DT_STR" length="80" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="libelle_formation" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="campus" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ufr" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="departement" dataType="DT_STR" length="150" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="niveau" dataType="DT_STR" length="80" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="modalite" dataType="DT_STR" length="80" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="frais_annuels" dataType="DT_NUMERIC" length="0" precision="12" scale="2" codePage="0"/&gt;&lt;referenceColumn name="date_insert" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -1429,11 +1429,11 @@ where [refTable].[code_formation] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\DFT_Fact_Inscription\LK_Inscription"
+              refId="Package\DFT_Fact_Inscription\Recherche"
               componentClassID="Microsoft.Lookup"
               contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
               description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
-              name="LK_Inscription"
+              name="Recherche"
               usesDispositions="true"
               version="6">
               <properties>
@@ -1459,7 +1459,7 @@ where [refTable].[id_inscription] = ?</property>
                   dataType="System.Int32"
                   description="Spécifie le type de cache de la table de correspondance."
                   name="CacheType"
-                  typeConverter="CacheType">2</property>
+                  typeConverter="CacheType">0</property>
                 <property
                   dataType="System.Int32"
                   description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
@@ -1485,7 +1485,7 @@ where [refTable].[id_inscription] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
-                  name="ParameterMap">#{Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_id_inscription_clean]};</property>
+                  name="ParameterMap">#{Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_id_inscription_clean]};</property>
                 <property
                   dataType="System.Int32"
                   description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
@@ -1497,24 +1497,24 @@ where [refTable].[id_inscription] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT_Fact_Inscription\LK_Inscription.Connections[OleDbConnection]"
-                  connectionManagerID="{8F3B7821-4889-4EC0-9716-1027879958C8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[CM_SQL_DW_Universite]"
+                  refId="Package\DFT_Fact_Inscription\Recherche.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-H10OCSF\AL.DW_Universite_BI]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-H10OCSF\AL.DW_Universite_BI]"
                   description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT_Fact_Inscription\LK_Inscription.Inputs[Entrée de recherche]"
+                  refId="Package\DFT_Fact_Inscription\Recherche.Inputs[Entrée de recherche]"
                   name="Entrée de recherche">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_Fact_Inscription\LK_Inscription.Inputs[Entrée de recherche].Columns[cv_id_inscription_clean]"
+                      refId="Package\DFT_Fact_Inscription\Recherche.Inputs[Entrée de recherche].Columns[cv_id_inscription_clean]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="80"
                       cachedName="cv_id_inscription_clean"
-                      lineageId="Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_id_inscription_clean]">
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_id_inscription_clean]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1532,38 +1532,38 @@ where [refTable].[id_inscription] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_Fact_Inscription\LK_Inscription.Outputs[Sortie de recherche avec correspondance]"
+                  refId="Package\DFT_Fact_Inscription\Recherche.Outputs[Sortie de recherche avec correspondance]"
                   errorOrTruncationOperation="Recherche"
                   exclusionGroup="1"
                   name="Sortie de recherche avec correspondance"
-                  synchronousInputId="Package\DFT_Fact_Inscription\LK_Inscription.Inputs[Entrée de recherche]">
+                  synchronousInputId="Package\DFT_Fact_Inscription\Recherche.Inputs[Entrée de recherche]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT_Fact_Inscription\LK_Inscription.Outputs[Sortie de recherche sans correspondance]"
+                  refId="Package\DFT_Fact_Inscription\Recherche.Outputs[Sortie de recherche sans correspondance]"
                   description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
                   exclusionGroup="1"
                   name="Sortie de recherche sans correspondance"
-                  synchronousInputId="Package\DFT_Fact_Inscription\LK_Inscription.Inputs[Entrée de recherche]">
+                  synchronousInputId="Package\DFT_Fact_Inscription\Recherche.Inputs[Entrée de recherche]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT_Fact_Inscription\LK_Inscription.Outputs[Sortie d'erreur de recherche]"
+                  refId="Package\DFT_Fact_Inscription\Recherche.Outputs[Sortie d'erreur de recherche]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de recherche"
-                  synchronousInputId="Package\DFT_Fact_Inscription\LK_Inscription.Inputs[Entrée de recherche]">
+                  synchronousInputId="Package\DFT_Fact_Inscription\Recherche.Inputs[Entrée de recherche]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Fact_Inscription\LK_Inscription.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      refId="Package\DFT_Fact_Inscription\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_Fact_Inscription\LK_Inscription.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      lineageId="Package\DFT_Fact_Inscription\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_Fact_Inscription\LK_Inscription.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      refId="Package\DFT_Fact_Inscription\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_Fact_Inscription\LK_Inscription.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_Fact_Inscription\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1849,6 +1849,818 @@ FROM     staging.Inscriptions</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\DFT_Fact_Inscription\Trier"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[id_inscription]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="id_inscription"
+                      lineageId="Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[id_inscription]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[matricule]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="matricule"
+                      lineageId="Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[matricule]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[code_formation]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="code_formation"
+                      lineageId="Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[code_formation]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[annee_academique]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="annee_academique"
+                      lineageId="Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[annee_academique]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[date_inscription]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="date_inscription"
+                      lineageId="Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[date_inscription]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[montant_attendu]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="montant_attendu"
+                      lineageId="Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[montant_attendu]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[statut_inscription]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="statut_inscription"
+                      lineageId="Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[statut_inscription]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[redoublant]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="redoublant"
+                      lineageId="Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[redoublant]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[abandon_fin_annee]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="abandon_fin_annee"
+                      lineageId="Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[abandon_fin_annee]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[id_inscription_clean]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="id_inscription_clean"
+                      lineageId="Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[id_inscription_clean]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[matricule_clean]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="matricule_clean"
+                      lineageId="Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[matricule_clean]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[code_formation_clean]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="code_formation_clean"
+                      lineageId="Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[code_formation_clean]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[annee_academique_clean]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="annee_academique_clean"
+                      lineageId="Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[annee_academique_clean]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[es_redoublant]"
+                      cachedDataType="i4"
+                      cachedName="es_redoublant"
+                      lineageId="Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[es_redoublant]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[est_abandon]"
+                      cachedDataType="i4"
+                      cachedName="est_abandon"
+                      lineageId="Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[est_abandon]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[date_inscription_date]"
+                      cachedDataType="dbDate"
+                      cachedName="date_inscription_date"
+                      lineageId="Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[date_inscription_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[cv_montant_attendu]"
+                      cachedDataType="numeric"
+                      cachedName="cv_montant_attendu"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_montant_attendu]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[cv_matricule_clean]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cv_matricule_clean"
+                      lineageId="Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_matricule_clean]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[cv_code_formation_clean]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="cv_code_formation_clean"
+                      lineageId="Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_code_formation_clean]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[cv_annee_academique_clean]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cv_annee_academique_clean"
+                      lineageId="Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_annee_academique_clean]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[cv_id_inscription_clean]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="cv_id_inscription_clean"
+                      lineageId="Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_id_inscription_clean]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[cv_statut_inscription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cv_statut_inscription"
+                      lineageId="Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_statut_inscription]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[etudiant_key]"
+                      cachedDataType="i4"
+                      cachedName="etudiant_key"
+                      lineageId="Package\DFT_Fact_Inscription\LK_Etudiant.Outputs[Sortie de recherche avec correspondance].Columns[etudiant_key]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[formation_key]"
+                      cachedDataType="i4"
+                      cachedName="formation_key"
+                      lineageId="Package\DFT_Fact_Inscription\LK_Formation.Outputs[Sortie de recherche avec correspondance].Columns[formation_key]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri].Columns[date_key]"
+                      cachedDataType="i4"
+                      cachedName="date_key"
+                      lineageId="Package\DFT_Fact_Inscription\LK_Date.Outputs[Sortie de recherche avec correspondance].Columns[date_key]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[id_inscription]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[id_inscription]"
+                      name="id_inscription"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[id_inscription]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[matricule]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[matricule]"
+                      name="matricule">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[matricule]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[code_formation]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[code_formation]"
+                      name="code_formation">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[code_formation]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[annee_academique]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[annee_academique]"
+                      name="annee_academique">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[annee_academique]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[date_inscription]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[date_inscription]"
+                      name="date_inscription">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[date_inscription]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[montant_attendu]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[montant_attendu]"
+                      name="montant_attendu">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[montant_attendu]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[statut_inscription]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[statut_inscription]"
+                      name="statut_inscription">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[statut_inscription]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[redoublant]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[redoublant]"
+                      name="redoublant">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[redoublant]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[abandon_fin_annee]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[abandon_fin_annee]"
+                      name="abandon_fin_annee">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB].Columns[abandon_fin_annee]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[id_inscription_clean]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[id_inscription_clean]"
+                      name="id_inscription_clean">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[id_inscription_clean]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[matricule_clean]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[matricule_clean]"
+                      name="matricule_clean">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[matricule_clean]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[code_formation_clean]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[code_formation_clean]"
+                      name="code_formation_clean">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[code_formation_clean]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[annee_academique_clean]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[annee_academique_clean]"
+                      name="annee_academique_clean">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[annee_academique_clean]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[es_redoublant]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[es_redoublant]"
+                      name="es_redoublant">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[es_redoublant]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[est_abandon]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[est_abandon]"
+                      name="est_abandon">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\DC_clean.Outputs[Sortie de colonne dérivée].Columns[est_abandon]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[date_inscription_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[date_inscription_date]"
+                      name="date_inscription_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[date_inscription_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_montant_attendu]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_montant_attendu]"
+                      name="cv_montant_attendu"
+                      precision="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_montant_attendu]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_matricule_clean]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_matricule_clean]"
+                      name="cv_matricule_clean">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_matricule_clean]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_code_formation_clean]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_code_formation_clean]"
+                      name="cv_code_formation_clean">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_code_formation_clean]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_annee_academique_clean]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_annee_academique_clean]"
+                      name="cv_annee_academique_clean">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_annee_academique_clean]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_id_inscription_clean]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_id_inscription_clean]"
+                      name="cv_id_inscription_clean">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_id_inscription_clean]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_statut_inscription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[cv_statut_inscription]"
+                      name="cv_statut_inscription">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\CV_Date_Montant.Outputs[Sortie de conversion de données].Columns[cv_statut_inscription]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[etudiant_key]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[etudiant_key]"
+                      name="etudiant_key">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\LK_Etudiant.Outputs[Sortie de recherche avec correspondance].Columns[etudiant_key]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[formation_key]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[formation_key]"
+                      name="formation_key">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\LK_Formation.Outputs[Sortie de recherche avec correspondance].Columns[formation_key]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[date_key]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri].Columns[date_key]"
+                      name="date_key">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT_Fact_Inscription\LK_Date.Outputs[Sortie de recherche avec correspondance].Columns[date_key]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -1883,19 +2695,24 @@ FROM     staging.Inscriptions</property>
               startId="Package\DFT_Fact_Inscription\LK_Formation.Outputs[Sortie de recherche avec correspondance]" />
             <path
               refId="Package\DFT_Fact_Inscription.Paths[Sortie de recherche avec correspondance2]"
-              endId="Package\DFT_Fact_Inscription\LK_Inscription.Inputs[Entrée de recherche]"
+              endId="Package\DFT_Fact_Inscription\Trier.Inputs[Entrée de tri]"
               name="Sortie de recherche avec correspondance"
               startId="Package\DFT_Fact_Inscription\LK_Date.Outputs[Sortie de recherche avec correspondance]" />
             <path
               refId="Package\DFT_Fact_Inscription.Paths[Sortie de recherche sans correspondance]"
               endId="Package\DFT_Fact_Inscription\Fact_Inscription.Inputs[Entrée de destination OLE DB]"
               name="Sortie de recherche sans correspondance"
-              startId="Package\DFT_Fact_Inscription\LK_Inscription.Outputs[Sortie de recherche sans correspondance]" />
+              startId="Package\DFT_Fact_Inscription\Recherche.Outputs[Sortie de recherche sans correspondance]" />
             <path
               refId="Package\DFT_Fact_Inscription.Paths[Sortie de source OLE DB]"
               endId="Package\DFT_Fact_Inscription\DC_clean.Inputs[Entrée de colonne dérivée]"
               name="Sortie de source OLE DB"
               startId="Package\DFT_Fact_Inscription\STG_Inscriptions.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\DFT_Fact_Inscription.Paths[Sortie de tri]"
+              endId="Package\DFT_Fact_Inscription\Recherche.Inputs[Entrée de recherche]"
+              name="Sortie de tri"
+              startId="Package\DFT_Fact_Inscription\Trier.Outputs[Sortie de tri]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2028,13 +2845,9 @@ FROM     staging.Inscriptions</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="145.6,41.6"
-          Id="Package\DFT_Fact_Inscription\LK_Inscription"
-          TopLeft="707.142858648178,317.352940898299" />
-        <NodeLayout
           Size="122.4,41.6"
           Id="Package\DFT_Fact_Inscription\DC_clean"
-          TopLeft="627.14285847788,22.9411764504794" />
+          TopLeft="627.857144193686,22.1764705687967" />
         <NodeLayout
           Size="163.2,41.6"
           Id="Package\DFT_Fact_Inscription\CV_Date_Montant"
@@ -2046,15 +2859,15 @@ FROM     staging.Inscriptions</property>
         <NodeLayout
           Size="153.6,41.6"
           Id="Package\DFT_Fact_Inscription\Fact_Inscription"
-          TopLeft="701.428572921729,500.882352502134" />
+          TopLeft="659.285715689161,511.588234845691" />
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\DFT_Fact_Inscription\CS_inscriptioon"
-          TopLeft="110.714285949967,119.294117542493" />
+          TopLeft="117.142857392223,110.117646962301" />
         <NodeLayout
           Size="143.2,41.6"
           Id="Package\DFT_Fact_Inscription\LK_Formation"
-          TopLeft="639.285715646586,215.647058634506" />
+          TopLeft="642.142858509811,223.294117451332" />
         <NodeLayout
           Size="157.6,41.6"
           Id="Package\DFT_Fact_Inscription\STG_Inscriptions"
@@ -2066,33 +2879,33 @@ FROM     staging.Inscriptions</property>
         <NodeLayout
           Size="134.4,41.6"
           Id="Package\DFT_Fact_Inscription\LK_Etudiant"
-          TopLeft="120.000000255449,214.882352752824" />
+          TopLeft="120.714285971255,224.058823333016" />
         <EdgeLayout
           Id="Package\DFT_Fact_Inscription.Paths[Sortie de conversion de données]"
           TopLeft="614.457143991456,157.07058813408">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-427.257143736007,57.8117646187443"
+              EndConnector="-426.542858020201,66.9882351989357"
               Start="0,0"
-              End="-427.257143736007,50.3117646187443">
+              End="-426.542858020201,59.4882351989357">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.9058823093722" />
+                    End="0,29.4941175994679" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24.9058823093722"
-                    Point2="0,28.9058823093722"
-                    Point3="-4,28.9058823093722" />
+                    Point1="0,29.4941175994679"
+                    Point2="0,33.4941175994679"
+                    Point3="-4,33.4941175994679" />
                   <mssgle:LineSegment
-                    End="-423.257143736007,28.9058823093722" />
+                    End="-422.542858020201,33.4941175994679" />
                   <mssgle:CubicBezierSegment
-                    Point1="-423.257143736007,28.9058823093722"
-                    Point2="-427.257143736007,28.9058823093722"
-                    Point3="-427.257143736007,32.9058823093722" />
+                    Point1="-422.542858020201,33.4941175994679"
+                    Point2="-426.542858020201,33.4941175994679"
+                    Point3="-426.542858020201,37.4941175994679" />
                   <mssgle:LineSegment
-                    End="-427.257143736007,50.3117646187443" />
+                    End="-426.542858020201,59.4882351989357" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2103,30 +2916,30 @@ FROM     staging.Inscriptions</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Fact_Inscription.Paths[Sortie de colonne dérivée]"
-          TopLeft="688.34285847788,64.5411764504795">
+          TopLeft="689.057144193686,63.7764705687967">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-502.428572527913,54.7529410920135"
+              EndConnector="-496.714286801463,46.3411763935045"
               Start="0,0"
-              End="-502.428572527913,47.2529410920135">
+              End="-496.714286801463,38.8411763935045">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.3764705460068" />
+                    End="0,19.1705881967522" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.3764705460068"
-                    Point2="0,27.3764705460068"
-                    Point3="-4,27.3764705460068" />
+                    Point1="0,19.1705881967522"
+                    Point2="0,23.1705881967522"
+                    Point3="-4,23.1705881967522" />
                   <mssgle:LineSegment
-                    End="-498.428572527913,27.3764705460068" />
+                    End="-492.714286801463,23.1705881967522" />
                   <mssgle:CubicBezierSegment
-                    Point1="-498.428572527913,27.3764705460068"
-                    Point2="-502.428572527913,27.3764705460068"
-                    Point3="-502.428572527913,31.3764705460068" />
+                    Point1="-492.714286801463,23.1705881967522"
+                    Point2="-496.714286801463,23.1705881967522"
+                    Point3="-496.714286801463,27.1705881967522" />
                   <mssgle:LineSegment
-                    End="-502.428572527913,47.2529410920135" />
+                    End="-496.714286801463,38.8411763935045" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2161,42 +2974,168 @@ FROM     staging.Inscriptions</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Fact_Inscription.Paths[INSCRIPTION_VALIDE]"
-          TopLeft="261.114285949967,138.182352838286">
+          TopLeft="267.542857392223,133.594117548191">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="271.742858041489,0"
+              EndConnector="265.314286599233,0"
               Start="0,0"
-              End="264.242858041489,0">
+              End="257.814286599233,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="264.242858041489,0" />
+                    End="257.814286599233,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="81.8718782394945,5,100.4991015625,10.88671875"
+              BoundingBox="78.6575925183664,5,100.4991015625,10.88671875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Fact_Inscription.Paths[Sortie de source OLE DB]"
-          TopLeft="283.314285981898,40.6823529237488">
+          TopLeft="283.314285981898,40.2999999829075">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="343.828572495982,0"
+              EndConnector="344.542858211788,0"
               Start="0,0"
-              End="336.328572495982,0">
+              End="337.042858211788,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="336.328572495982,0" />
+                    End="337.042858211788,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Fact_Inscription.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="713.742858509811,264.894117451332">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-540.657143980813,59.9999999544205"
+              Start="0,0"
+              End="-540.657143980813,52.4999999544205">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9999999772103" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9999999772103"
+                    Point2="0,29.9999999772103"
+                    Point3="-4,29.9999999772103" />
+                  <mssgle:LineSegment
+                    End="-536.657143980813,29.9999999772103" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-536.657143980813,29.9999999772103"
+                    Point2="-540.657143980813,29.9999999772103"
+                    Point3="-540.657143980813,33.9999999772103" />
+                  <mssgle:LineSegment
+                    End="-540.657143980813,52.4999999544205" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-362.005583709157,34.9999999772103,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Fact_Inscription.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="255.114285971255,244.476470392174">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="387.028572538556,0"
+              Start="0,0"
+              End="379.528572538556,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="379.528572538556,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="98.0872745505279,5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="100,41.6"
+          Id="Package\DFT_Fact_Inscription\Trier"
+          TopLeft="329.285714986677,424.411764333869" />
+        <EdgeLayout
+          Id="Package\DFT_Fact_Inscription.Paths[Sortie de recherche avec correspondance2]"
+          TopLeft="173.085714528998,366.494117405753">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="206.200000457679,57.917646928116"
+              Start="0,0"
+              End="206.200000457679,50.417646928116">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.958823464058" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.958823464058"
+                    Point2="0,28.958823464058"
+                    Point3="4,28.958823464058" />
+                  <mssgle:LineSegment
+                    End="202.200000457679,28.958823464058" />
+                  <mssgle:CubicBezierSegment
+                    Point1="202.200000457679,28.958823464058"
+                    Point2="206.200000457679,28.958823464058"
+                    Point3="206.200000457679,32.958823464058" />
+                  <mssgle:LineSegment
+                    End="206.200000457679,50.417646928116" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="11.4229885100896,33.958823464058,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\DFT_Fact_Inscription\Recherche"
+          TopLeft="662.857144268192,416.764705517043" />
+        <EdgeLayout
+          Id="Package\DFT_Fact_Inscription.Paths[Sortie de tri]"
+          TopLeft="429.285714986677,441.388234925456">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="233.571429281515,0"
+              Start="0,0"
+              End="226.071429281515,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="226.071429281515,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2207,138 +3146,43 @@ FROM     staging.Inscriptions</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Fact_Inscription.Paths[Sortie de recherche sans correspondance]"
-          TopLeft="779.085715784954,358.952940898299">
+          TopLeft="726.457144268192,458.364705517043">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,141.929411603835"
+              EndConnector="9.6285714209688,53.2235293286484"
               Start="0,0"
-              End="0,134.429411603835">
+              End="9.6285714209688,45.7235293286484">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,134.429411603835" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-91.50201171875,61.4100183019175,183.0040234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Fact_Inscription.Paths[Sortie de recherche avec correspondance1]"
-          TopLeft="710.885715646586,257.247058634506">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-537.800001117588,67.6470587712465"
-              Start="0,0"
-              End="-537.800001117588,60.1470587712465">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.8235293856233" />
+                    End="0,22.6117646643242" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29.8235293856233"
-                    Point2="0,33.8235293856233"
-                    Point3="-4,33.8235293856233" />
+                    Point1="0,22.6117646643242"
+                    Point2="0,26.6117646643242"
+                    Point3="4,26.6117646643242" />
                   <mssgle:LineSegment
-                    End="-533.800001117588,33.8235293856233" />
+                    End="5.6285714209688,26.6117646643242" />
                   <mssgle:CubicBezierSegment
-                    Point1="-533.800001117588,33.8235293856233"
-                    Point2="-537.800001117588,33.8235293856233"
-                    Point3="-537.800001117588,37.8235293856233" />
+                    Point1="5.6285714209688,26.6117646643242"
+                    Point2="9.6285714209688,26.6117646643242"
+                    Point3="9.6285714209688,30.6117646643242" />
                   <mssgle:LineSegment
-                    End="-537.800001117588,60.1470587712465" />
+                    End="9.6285714209688,45.7235293286484" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-360.577012277544,38.8235293856233,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Fact_Inscription.Paths[Sortie de recherche avec correspondance]"
-          TopLeft="254.400000255449,236.064705693665">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="384.885715391137,0"
-              Start="0,0"
-              End="377.385715391137,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="377.385715391137,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="97.0158459768186,5,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Fact_Inscription.Paths[Sortie de recherche avec correspondance2]"
-          TopLeft="231.885714528999,341.923529152026">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="475.25714411918,0"
-              Start="0,0"
-              End="467.75714411918,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="467.75714411918,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="142.20156034084,5,183.3540234375,11.609375"
+              BoundingBox="-86.6877260082656,31.6117646643242,183.0040234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT_Fact_Inscription\LK_Inscription">
-    <Properties>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q2:string">[dw].[Fact_Inscription]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q3:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q4:boolean">true</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT_Fact_Inscription\LK_Date">
     <Properties>
@@ -2428,6 +3272,29 @@ FROM     staging.Inscriptions</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Fact_Inscription\Recherche">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[Fact_Inscription]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

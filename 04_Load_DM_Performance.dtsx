@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="51"
-  DTS:VersionGUID="{0FA54D31-6EDE-45CC-B784-660ECDA9536C}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{9060D8AB-4EA9-4BEF-97D5-76E08738296C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -2992,7 +2992,7 @@ where [refTable].[code_ue] = ?</property>
         <NodeLayout
           Size="146.4,41.6"
           Id="Package\DFT_Fact_ResultatUEs\Staging_Notes"
-          TopLeft="42.8571429483746,46.9529411717785" />
+          TopLeft="43.5714286641808,46.9529411717785" />
         <NodeLayout
           Size="156.8,41.6"
           Id="Package\DFT_Fact_ResultatUEs\CV_id_inscripton"
@@ -3053,13 +3053,13 @@ where [refTable].[code_ue] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de source OLE DB]"
-          TopLeft="116.057142948375,88.5529411717785">
+          TopLeft="116.771428664181,88.5529411717785">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="22.9285714316126,44.9588234583607"
+              EndConnector="22.2142857158064,44.9588234583607"
               Start="0,0"
-              End="22.9285714316126,37.4588234583607">
+              End="22.2142857158064,37.4588234583607">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3070,13 +3070,13 @@ where [refTable].[code_ue] = ?</property>
                     Point2="0,22.4794117291803"
                     Point3="4,22.4794117291803" />
                   <mssgle:LineSegment
-                    End="18.9285714316126,22.4794117291803" />
+                    End="18.2142857158064,22.4794117291803" />
                   <mssgle:CubicBezierSegment
-                    Point1="18.9285714316126,22.4794117291803"
-                    Point2="22.9285714316126,22.4794117291803"
-                    Point3="22.9285714316126,26.4794117291803" />
+                    Point1="18.2142857158064,22.4794117291803"
+                    Point2="22.2142857158064,22.4794117291803"
+                    Point3="22.2142857158064,26.4794117291803" />
                   <mssgle:LineSegment
-                    End="22.9285714316126,37.4588234583607" />
+                    End="22.2142857158064,37.4588234583607" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3330,21 +3330,21 @@ where [refTable].[code_ue] = ?</property>
         <NodeLayout
           Size="118.4,44.8"
           Id="Package\DFT_Fact_ResultatUEs\CS_Note"
-          TopLeft="472.142858147925,124.188235221726" />
+          TopLeft="471.428572432119,124.952941103408" />
         <EdgeLayout
           Id="Package\DFT_Fact_ResultatUEs.Paths[Sortie de colonne dérivée2]"
-          TopLeft="406.222222823,149.654248290232">
+          TopLeft="406.222222823,150.036601231074">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="65.9206353249259,0"
+              EndConnector="65.2063496091196,0"
               Start="0,0"
-              End="58.4206353249259,0">
+              End="57.7063496091196,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="58.4206353249259,0" />
+                    End="57.7063496091196,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3355,25 +3355,25 @@ where [refTable].[code_ue] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Fact_ResultatUEs.Paths[NOTE_A_CONVERTIR]"
-          TopLeft="590.542858147925,146.680392083689">
+          TopLeft="589.828572432119,147.06274502453">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="156.203175187732,0"
+              EndConnector="156.917460903538,0"
               Start="0,0"
-              End="148.703175187732,0">
+              End="149.417460903538,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="148.703175187732,0" />
+                    End="149.417460903538,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="17.047993843866,5,114.6071875,16"
+              BoundingBox="17.4051367017692,5,114.6071875,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3391,73 +3391,73 @@ where [refTable].[code_ue] = ?</property>
           TopLeft="2.55795384873636E-13,286.624836475588" />
         <EdgeLayout
           Id="Package\DFT_Fact_ResultatUEs.Paths[ABSENT_SANS_NOTE]"
-          TopLeft="512.942858147925,124.188235221726">
+          TopLeft="512.228572432119,124.952941103408">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-54.8571430122367,-74.3411763935043"
+              EndConnector="-54.1428572964304,-75.1058822751869"
               Start="0,0"
-              End="-54.8571430122367,-66.8411763935043">
+              End="-54.1428572964304,-67.6058822751869">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-26.3311999685498" />
+                    End="0,-26.6431999682763" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-26.3311999685498"
-                    Point2="0,-30.3311999685498"
-                    Point3="-4,-30.3311999685498" />
+                    Point1="0,-26.6431999682763"
+                    Point2="0,-30.6431999682763"
+                    Point3="-4,-30.6431999682763" />
                   <mssgle:LineSegment
-                    End="-50.8571430122367,-30.3311999685498" />
+                    End="-50.1428572964304,-30.6431999682763" />
                   <mssgle:CubicBezierSegment
-                    Point1="-50.8571430122367,-30.3311999685498"
-                    Point2="-54.8571430122367,-30.3311999685498"
-                    Point3="-54.8571430122367,-34.3311999685498" />
+                    Point1="-50.1428572964304,-30.6431999682763"
+                    Point2="-54.1428572964304,-30.6431999682763"
+                    Point3="-54.1428572964304,-34.6431999682763" />
                   <mssgle:LineSegment
-                    End="-54.8571430122367,-66.8411763935043" />
+                    End="-54.1428572964304,-67.6058822751869" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-76.0445871311184,-25.3311999685498,97.23203125,10.88671875"
+              BoundingBox="-75.6874442732152,-25.6431999682763,97.23203125,10.88671875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Fact_ResultatUEs.Paths[NOTE_VIDE_NON_ABSENT]"
-          TopLeft="549.742858147925,124.188235221726">
+          TopLeft="549.028572432119,124.952941103408">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="118.228571729635,-77.4352940385533"
+              EndConnector="118.942857445441,-78.199999920236"
               Start="0,0"
-              End="118.228571729635,-69.9352940385533">
+              End="118.942857445441,-70.699999920236">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-27.5935999677297" />
+                    End="0,-27.9055999674563" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-27.5935999677297"
-                    Point2="0,-31.5935999677297"
-                    Point3="4,-31.5935999677297" />
+                    Point1="0,-27.9055999674563"
+                    Point2="0,-31.9055999674563"
+                    Point3="4,-31.9055999674563" />
                   <mssgle:LineSegment
-                    End="114.228571729635,-31.5935999677297" />
+                    End="114.942857445441,-31.9055999674563" />
                   <mssgle:CubicBezierSegment
-                    Point1="114.228571729635,-31.5935999677297"
-                    Point2="118.228571729635,-31.5935999677297"
-                    Point3="118.228571729635,-35.5935999677297" />
+                    Point1="114.942857445441,-31.9055999674563"
+                    Point2="118.942857445441,-31.9055999674563"
+                    Point3="118.942857445441,-35.9055999674563" />
                   <mssgle:LineSegment
-                    End="118.228571729635,-69.9352940385533" />
+                    End="118.942857445441,-70.699999920236" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-1.3544250726823,-26.5935999677297,120.937421875,10.88671875"
+              BoundingBox="-0.997282214779304,-26.9055999674563,120.937421875,10.88671875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3679,7 +3679,7 @@ where [refTable].[code_ue] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

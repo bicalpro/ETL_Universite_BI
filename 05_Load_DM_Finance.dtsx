@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{12781B1E-7A01-4CE9-9F6D-8B8659107847}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{03097458-5FBA-4516-AC45-D8CD4EDE3D05}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -2303,16 +2303,16 @@ where [refTable].[id_inscription] = ?</property>
         <NodeLayout
           Size="145.6,41.6"
           Id="Package\Tâche de flux de données\LK_Inscription"
-          TopLeft="344.285715018608,433.447058486371" />
+          TopLeft="345.000000734414,433.447058486371" />
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de conversion de données1]"
           TopLeft="714.05714420433,400.870587963155">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-296.971429185722,32.5764705232165"
+              EndConnector="-296.257143469916,32.5764705232165"
               Start="0,0"
-              End="-296.971429185722,25.0764705232165">
+              End="-296.257143469916,25.0764705232165">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -2323,13 +2323,13 @@ where [refTable].[id_inscription] = ?</property>
                     Point2="0,16.2882352616083"
                     Point3="-4,16.2882352616083" />
                   <mssgle:LineSegment
-                    End="-292.971429185722,16.2882352616083" />
+                    End="-292.257143469916,16.2882352616083" />
                   <mssgle:CubicBezierSegment
-                    Point1="-292.971429185722,16.2882352616083"
-                    Point2="-296.971429185722,16.2882352616083"
-                    Point3="-296.971429185722,20.2882352616083" />
+                    Point1="-292.257143469916,16.2882352616083"
+                    Point2="-296.257143469916,16.2882352616083"
+                    Point3="-296.257143469916,20.2882352616083" />
                   <mssgle:LineSegment
-                    End="-296.971429185722,25.0764705232165" />
+                    End="-296.257143469916,25.0764705232165" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2348,25 +2348,25 @@ where [refTable].[id_inscription] = ?</property>
           TopLeft="343.571429302802,520.623528998193" />
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
-          TopLeft="489.885715018608,456.158823190578">
+          TopLeft="490.600000734414,456.158823190578">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="182.257143555065,0"
+              EndConnector="181.542857839258,0"
               Start="0,0"
-              End="174.757143555065,0">
+              End="174.042857839258,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="174.757143555065,0" />
+                    End="174.042857839258,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-4.29843994121769,5,183.3540234375,11.609375"
+              BoundingBox="-4.65558279912081,5,183.3540234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
